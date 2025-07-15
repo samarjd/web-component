@@ -92,6 +92,8 @@ class InputsView extends HTMLElement {
 
     const btnUsage = `    &lt;button-elm id=&quot;btn1&quot; color=&quot;dark&quot; border shadow margin=&quot;0.25rem&quot; title=&quot;Button 1&quot;&gt;Button 1&lt;/button-elm&gt;`;
 
+    const notFoundUsage = `    &lt;not-found&gt;&lt;/not-found&gt;`;
+
     return `
     <section class="input-view">
         <row-elm>
@@ -185,6 +187,14 @@ class InputsView extends HTMLElement {
                           </div>
                           <hr>
                           <text-editor placeholder="Start typing"></text-editor>
+                        </div>
+                        <div class="tab-panel" label="Not found">
+                          <p class="text-muted">Usage:</p>
+                          <div class="code-wrapper">
+                            <span class="code">${notFoundUsage}</span>
+                          </div>
+                          <hr>
+                          <not-found></not-found>
                         </div>
                       </tab-elm>
                     </div>

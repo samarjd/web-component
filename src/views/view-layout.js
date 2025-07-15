@@ -46,26 +46,6 @@ class Layout extends HTMLElement {
     return `
     <section class="layout-view">
       <row-elm>
-        <col-elm class="col-12">
-          <card-elm type="card-primary">
-            <div slot="card-header">Row / Col / Card</div>
-            <div slot="card-body">
-              <p class="text-muted">Row usage:</p>
-              <div class="code-wrapper">
-                <span class="code">${rowUsage}</span>
-              </div>
-              <p class="text-muted">Col usage:</p>
-              <div class="code-wrapper">
-                <span class="code">${colUsage}</span>
-              </div>
-              <p class="text-muted">Card usage:</p>
-              <div class="code-wrapper">
-                <span class="code">${cardUsage}</span>
-              </div>
-            </div>
-          </card-elm>
-        </col-elm>
-        </draggable-item>
         <col-elm class="col-6">
           <card-elm type="card-default">
             <div slot="card-header">What is Lorem Ipsum?</div>
@@ -143,6 +123,25 @@ class Layout extends HTMLElement {
               <img src="https://i.ytimg.com/vi/3AXLubczRoY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC52LFmAEQ2SOcO5wpl2jfJwxmynQ" alt="Placeholder Image" loading="lazy" style="width: 100%; height: 10rem; object-fit: cover;">
             </div>
             <div slot="card-footer">This is a one-quarter width card</div>
+          </card-elm>
+        </col-elm>
+        <col-elm class="col-12">
+          <card-elm type="card-primary">
+            <div slot="card-header">Row / Col / Card Usage</div>
+            <div slot="card-body">
+              <p class="text-muted">Row usage:</p>
+              <div class="code-wrapper">
+                <span class="code">${rowUsage}</span>
+              </div>
+              <p class="text-muted">Col usage:</p>
+              <div class="code-wrapper">
+                <span class="code">${colUsage}</span>
+              </div>
+              <p class="text-muted">Card usage:</p>
+              <div class="code-wrapper">
+                <span class="code">${cardUsage}</span>
+              </div>
+            </div>
           </card-elm>
         </col-elm>
       </row-elm>

@@ -9,7 +9,7 @@ const app = {
         <div class="nav-item" navigate="view-layout">Layout</div>
         <div class="nav-item" navigate="view-drag">Drag & Drop</div>
         <div class="nav-item" navigate="view-inputs">Inputs</div>
-        <div class="nav-item" navigate="view-table">Table</div>
+        <div class="nav-item" navigate="view-timeline" active>Timeline</div>
         <div class="nav-item" navigate="view">etc....</div>
       </nav-bar>
       <app>

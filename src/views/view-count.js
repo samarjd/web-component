@@ -88,6 +88,7 @@ class Count extends HTMLElement {
            
             <col-elm class="col-12">
                 <card-elm type="primary" title="Usage">
+                    <div slot="card-header">Counter / Modal / Dropdown Usage</div>
                     <div slot="card-body">
                         <p class="text-muted">Count usage:</p>
                         <div class="code-wrapper">

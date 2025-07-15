@@ -83,6 +83,7 @@ class DragAndDrop extends HTMLElement {
         </drag-container>
        
         <card-elm type="primary" title="Usage">
+            <div slot="card-header">Drag and Drop Usage</div>
             <div slot="card-body">
                 <p class="text-muted">Usage:</p>
                 <div class="code-wrapper">
