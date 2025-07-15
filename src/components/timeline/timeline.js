@@ -123,7 +123,7 @@ class Timeline extends HTMLElement {
                 font-size: 0.75rem;
                 color: #8c939d;
                 display: block;
-                margin-bottom: 0.4rem;
+                text-align: right;
             }
 
             .title-container {
