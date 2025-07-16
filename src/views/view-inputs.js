@@ -5,6 +5,7 @@ import '../components/tab.js';
 import "../components/select.js";
 import '../components/button.js';
 import '../components/text-editor/text-editor.js';
+import '../components/tooltip/tooltip.js';
 
 import '../components/icons.js';
 
@@ -93,6 +94,10 @@ class InputsView extends HTMLElement {
     const btnUsage = `    &lt;button-elm id=&quot;btn1&quot; color=&quot;dark&quot; border shadow margin=&quot;0.25rem&quot; title=&quot;Button 1&quot;&gt;Button 1&lt;/button-elm&gt;`;
 
     const notFoundUsage = `    &lt;not-found&gt;&lt;/not-found&gt;`;
+
+    const tooltipUsage = `    &lt;tooltip-elm position=&quot;top&quot; trigger=&quot;hover&quot;&gt;
+      Hover over me
+    &lt;/tooltip-elm&gt;`;
 
     return `
     <section class="input-view">
@@ -195,6 +200,21 @@ class InputsView extends HTMLElement {
                           </div>
                           <hr>
                           <not-found></not-found>
+                        </div>
+                        <div class="tab-panel" label="Tooltip">
+                          <p class="text-muted">Usage:</p>
+                          <div class="code-wrapper">
+                            <span class="code">${tooltipUsage}</span>
+                          </div>
+                          <hr>
+                          <tooltip-elm position="top" trigger="hover">
+                            <button-elm color="primary" border shadow margin="0.25rem">Hover over me</button-elm>
+                            <span slot="tooltip-content">This is a tooltip triggered by hover</span>
+                          </tooltip-elm>
+                          <tooltip-elm position="bottom" trigger="click">
+                            <button-elm color="primary" border shadow margin="0.25rem">Click me</button-elm>
+                            <span slot="tooltip-content">You clicked me!</span>
+                          </tooltip-elm>
                         </div>
                       </tab-elm>
                     </div>
