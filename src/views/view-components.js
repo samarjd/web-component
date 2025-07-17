@@ -126,6 +126,14 @@ class CompView extends HTMLElement {
       Hover over me
     &lt;/tooltip-elm&gt;`;
 
+    const carouselUsage = `    &lt;carousel-elm items-visible=&quot;3&quot; autoplay&gt;&lt;/carousel-elm&gt;
+    Attributes:
+    - items-visible: Number of items visible at once (default: 3)
+    - autoplay: Enable automatic scrolling (default: false)
+
+    Properties:
+    - data: [{ img: 'image_url', content: 'Description' }, ...]`;
+
     return `
     <section class="input-view">
       <card-elm type="primary">
@@ -180,6 +188,10 @@ class CompView extends HTMLElement {
               </tooltip-elm>
             </div>
             <div class="tab-panel" label="Caroussel" active>
+              <p class="text-muted">Usage:</p>
+              <div class="code-wrapper">
+                <span class="code">${carouselUsage}</span>
+              </div>
               <carousel-elm items-visible="3" autoplay></carousel-elm>
             </div>
           </tab-elm>
