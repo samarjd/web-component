@@ -1,6 +1,8 @@
 import "./src/components/navbar/nav-bar.js";
 import './src/views/outlet.js';
 
+'use_strict';
+
 const app = {
   render() {
     document.body.innerHTML = `
@@ -9,6 +11,7 @@ const app = {
         <div class="nav-item" navigate="view-layout">Layout</div>
         <div class="nav-item" navigate="view-drag">Drag & Drop</div>
         <div class="nav-item" navigate="view-inputs">Inputs</div>
+        <div class="nav-item" navigate="view-components" active>Components</div>
         <div class="nav-item" navigate="view-timeline">Timeline</div>
         <div class="nav-item" navigate="view">etc....</div>
       </nav-bar>

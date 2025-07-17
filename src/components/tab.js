@@ -46,7 +46,7 @@ class Tab extends HTMLElement {
             .tab-list {
                 background-color: ${this.getColor(this.type || 'primary')};
                 color: white;
-                padding: 5px;
+                padding: 5px 2px;
                 border-radius: 2rem;
                 display: flex;
                 flex-direction: ${this.direction || 'row'};
