@@ -36,12 +36,15 @@ class NavLink extends HTMLElement {
   render(){
     this.shadowRoot.innerHTML = `
       <style>
-      :host.active {
-        font-weight: bold;
-  }
-        a {
+        :host {
+          cursor: pointer;
+        }
+        :host.active {
+          font-weight: bold;
+        }
+        a{
           text-decoration: none;
-          color: inherit;
+          color: inherit;          
         }
       </style>
       <a navigate="${this.navigate}" part="link"></a>

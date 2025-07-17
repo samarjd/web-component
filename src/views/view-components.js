@@ -3,7 +3,9 @@ import '../components/tab.js';
 import '../components/button.js';
 import '../components/tooltip/tooltip.js';
 import '../components/caroussel/caroussel.js';
+import '../components/breadcrumb.js';
 import '../components/icons.js';
+import Breadcrumb from "../components/breadcrumb.js";
 
 class CompView extends HTMLElement {
   constructor() {
@@ -134,6 +136,13 @@ class CompView extends HTMLElement {
     Properties:
     - data: [{ img: 'image_url', content: 'Description' }, ...]`;
 
+    const breadcrumbUsage = `    &lt;breadcrumb-elm&gt;
+      &lt;span class=&quot;breadcrumb-item&quot; link=&quot;view-count&quot;&gt;Home&lt/span&gt;
+      &lt;span class=&quot;breadcrumb-item&quot; link=&quot;view-components&quot;&gt;Components&lt/span&gt;
+      &lt;span class=&quot;breadcrumb-item&quot; active&gt;View Components&lt/span&gt;
+      ...
+    &lt;/breadcrumb-elm&gt;`;
+
     return `
     <section class="input-view">
       <card-elm type="primary">
@@ -187,12 +196,23 @@ class CompView extends HTMLElement {
               <span slot="tooltip-content">You clicked me!</span>
               </tooltip-elm>
             </div>
-            <div class="tab-panel" label="Caroussel" active>
+            <div class="tab-panel" label="Caroussel">
               <p class="text-muted">Usage:</p>
               <div class="code-wrapper">
                 <span class="code">${carouselUsage}</span>
               </div>
               <carousel-elm items-visible="3" autoplay></carousel-elm>
+            </div>
+            <div class="tab-panel" label="Breadcrumb">
+              <p class="text-muted">Usage:</p>
+              <div class="code-wrapper">
+                <span class="code">${breadcrumbUsage}</span>
+              </div>
+              <breadcrumb-elm separator=">">
+                <span class="breadcrumb-item" link="view-count">Home</span>
+                <span class="breadcrumb-item" link="view-components">Components</span>
+                <span class="breadcrumb-item" active>View Components</span>
+              </breadcrumb-elm>
             </div>
           </tab-elm>
         </div>
