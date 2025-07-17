@@ -24,3 +24,9 @@ body:has(nav-bar[direction="vertical"]){
 body:has(nav-bar[direction="vertical"]) app{
     overflow-x: hidden;
 }
+
+@media (max-width: 672px) {
+    body:has(nav-bar:not([direction="vertical"])){
+        margin-top: 5rem;
+    }
+}

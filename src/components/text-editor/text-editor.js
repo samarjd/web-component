@@ -46,6 +46,7 @@ class TextEditor extends HTMLElement {
                 padding: 0.25rem;
                 background: #f1f1f4;
                 border-bottom: 1px solid #e6e6e6;
+                flex-wrap: wrap;
             }
 
             .editor {

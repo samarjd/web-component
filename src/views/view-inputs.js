@@ -5,6 +5,7 @@ import '../components/tab.js';
 import "../components/select.js";
 import '../components/button.js';
 import '../components/text-editor/text-editor.js';
+import '../components/switch.js';
 import '../components/tooltip/tooltip.js';
 
 import '../components/icons.js';
@@ -124,6 +125,80 @@ class InputsView extends HTMLElement {
                       </div>
                       <hr>
                       <text-editor placeholder="Start typing"></text-editor>
+                    </div>
+                </card-elm>
+            </col-elm>
+            <col-elm class="col-12">
+                <card-elm type="primary">
+                    <div slot="card-header">
+                      Switch element
+                    </div>
+                    <div slot="card-body">
+                      <p class="text-muted">Usage:</p>
+                      <div class="code-wrapper">
+                        <span class="code"></span>
+                      </div>
+                      <hr>                        
+                      <h2>Switches with different background colors</h2>
+                      <row-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="primary" checked>Primary switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="danger" checked>Danger switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="warning" checked>Warning switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="success" checked>Success switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="info" checked>Info switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="dark" checked>Dark switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="light" checked>Light switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="secondary" checked>Secondary switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="danger" disabled checked>Disabled switch</switch-box>
+                        </col-elm>
+                      </row-elm>
+                      <h2 class="col-12">Switches with different outlines</h2>
+                      <row-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="outline-primary" checked>Primary switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="outline-danger" checked>Danger switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="outline-warning" checked>Warning switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="outline-success" checked>Success switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="outline-info" checked>Info switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="outline-dark" checked>Dark switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="outline-light" checked>Light switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="outline-secondary" checked>Secondary switch</switch-box>
+                        </col-elm>
+                        <col-elm class="col-3">
+                          <switch-box type="outline-danger" disabled checked>Disabled switch</switch-box>
+                        </col-elm>
+                      </row-elm>
                     </div>
                 </card-elm>
             </col-elm>

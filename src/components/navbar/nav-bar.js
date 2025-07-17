@@ -96,7 +96,7 @@ class NavBar extends HTMLElement {
             : `
             display: flex;
             justify-content: ${this.justify};
-            flex-wrap: wrap;
+            overflow-x: auto;
             width: 100%;`
           }
          
