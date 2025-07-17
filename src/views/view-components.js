@@ -82,7 +82,7 @@ class CompView extends HTMLElement {
         alert.type = alertType;
         alert.position = position || 'top-right';
         if (dismissible) alert.setAttribute('dismissible', '');
-        alert.innerHTML = 'This is an alert number ' + (Math.floor(Math.random() * 100) + 1);
+        alert.innerHTML = 'This is an alert message.';
 
         this.shadowRoot.appendChild(alert);
 
