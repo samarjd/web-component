@@ -157,14 +157,14 @@ class Alert extends HTMLElement {
             }
         }
 
-        setTimeout(() => {
-            this._dismiss();
-        }, 2000);
-
         if (this.dismissible) {
             this.shadowRoot.querySelector('.close-btn').addEventListener('click', () => {
                 this._dismiss();
             });
+        }else{
+            setTimeout(() => {
+                this._dismiss();
+            }, 2000);
         }
     }
 
