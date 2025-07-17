@@ -56,6 +56,8 @@ class InputsView extends HTMLElement {
 
     const editorUsage = `    &lt;text-editor placeholder=&quot;Start typing&quot;&gt;&lt;/text-editor&gt;`;
 
+    const switchUsage = `    &lt;switch-box type=&quot;primary&quot; checked&gt;Primary switch&lt;/switch-box&gt;`;
+
     return `
     <section class="input-view">
         <row-elm>
@@ -136,7 +138,7 @@ class InputsView extends HTMLElement {
                     <div slot="card-body">
                       <p class="text-muted">Usage:</p>
                       <div class="code-wrapper">
-                        <span class="code"></span>
+                        <span class="code">${switchUsage}</span>
                       </div>
                       <hr>                        
                       <h2>Switches with different background colors</h2>

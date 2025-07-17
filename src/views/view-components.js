@@ -5,8 +5,8 @@ import '../components/tooltip/tooltip.js';
 import '../components/caroussel/caroussel.js';
 import '../components/breadcrumb.js';
 import '../components/icons.js';
-import Breadcrumb from "../components/breadcrumb.js";
-
+import "../components/breadcrumb.js";
+import Alert from "../components/alert.js";
 class CompView extends HTMLElement {
   constructor() {
     super();
@@ -68,6 +68,26 @@ class CompView extends HTMLElement {
     if (carousel) {
       carousel.data = data;
     }
+
+    // Handle alert triggers
+    const alertTriggers = this.shadowRoot.querySelectorAll('.alert-trigger');
+    alertTriggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        let btn = e.target;
+        let position = btn.getAttribute('position');
+        let alertType = btn.getAttribute('color') || 'primary';
+        let dismissible = btn.hasAttribute('dismissible') && btn.getAttribute('dismissible') !== 'false';
+
+        const alert = new Alert();
+        alert.type = alertType;
+        alert.position = position || 'top-right';
+        if (dismissible) alert.setAttribute('dismissible', '');
+        alert.innerHTML = 'This is an alert number ' + (Math.floor(Math.random() * 100) + 1);
+
+        this.shadowRoot.appendChild(alert);
+
+      });
+    });
   }
 
   disconnectedCallback() {
@@ -213,6 +233,21 @@ class CompView extends HTMLElement {
                 <span class="breadcrumb-item" link="view-components">Components</span>
                 <span class="breadcrumb-item" active>View Components</span>
               </breadcrumb-elm>
+            </div>
+            <div class="tab-panel" label="Alert">
+              <p class="text-muted">Usage:</p>
+              <div class="code-wrapper">
+                <span class="code">&lt;alert-elm type=&quot;primary&quot; position=&quot;top-right&quot; dismissible&gt;
+                  &lt;span slot=&quot;title&quot;&gt;Alert Title&lt;/span&gt;
+                  This is an alert message.
+                &lt;/alert-elm&gt;</span>
+              </div>
+              <button-elm class="alert-trigger" color="primary" border shadow>Show Alert</button-elm>
+              <button-elm class="alert-trigger" color="danger" border dismissible="true">Show Dismissible Alert</button-elm>
+              <button-elm class="alert-trigger" color="light" border position="bottom-right">Show Bottom Right Alert</button-elm>
+              <button-elm class="alert-trigger" color="warning" border position="top-left">Show Top Left Alert</button-elm>
+              <button-elm class="alert-trigger" color="success" border position="top-right">Show Top Right Alert</button-elm>
+              <button-elm class="alert-trigger" color="dark" border shadow position="bottom-left">Show Bottom Left Alert</button-elm>
             </div>
           </tab-elm>
         </div>
