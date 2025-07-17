@@ -9,7 +9,6 @@ class Carousel extends HTMLElement {
         this.delay = 2000;
         this.interval = null;
 
-        // Bind handlers so we can add/remove listeners properly
         this._onPrevClick = this.prev.bind(this);
         this._onNextClick = this.next.bind(this);
         this._onDotClick = this._onDotClickHandler.bind(this);
@@ -17,12 +16,10 @@ class Carousel extends HTMLElement {
         this._onMouseEnter = this.stopAutoScroll.bind(this);
         this._onMouseLeave = this.startAutoScroll.bind(this);
 
-        // Drag state
         this._dragging = false;
         this._startX = 0;
         this._prevTranslate = 0;
 
-        // Bind drag handlers
         this._onPointerDown = this._onPointerDown.bind(this);
         this._onPointerMove = this._onPointerMove.bind(this);
         this._onPointerUp = this._onPointerUp.bind(this);
@@ -114,7 +111,6 @@ class Carousel extends HTMLElement {
             wrapper.removeEventListener('pointerdown', this._onPointerDown);
         }
 
-        // Remove global pointer event listeners in case drag was active
         this.shadowRoot.removeEventListener('pointermove', this._onPointerMove);
         this.shadowRoot.removeEventListener('pointerup', this._onPointerUp);
         this.shadowRoot.removeEventListener('pointercancel', this._onPointerUp);
@@ -129,7 +125,7 @@ class Carousel extends HTMLElement {
         this.currentIndex = Math.min(Math.max(this.currentIndex, 0), maxIndex);
 
         const itemWidth = carousel.offsetWidth / this.itemsVisible;
-        carousel.style.transition = ''; // reset transition
+        carousel.style.transition = ''; 
         carousel.style.transform = `translateX(-${this.currentIndex * itemWidth}px)`;
 
         this.shadowRoot.querySelectorAll('.dot').forEach((dot, i) => {
@@ -151,7 +147,6 @@ class Carousel extends HTMLElement {
         this.updateView();
     }
 
-    // --- Drag handlers start ---
     _onPointerDown(event) {
         this._dragging = true;
         this._startX = event.clientX;
@@ -189,9 +184,9 @@ class Carousel extends HTMLElement {
         const carousel = this.shadowRoot.querySelector('.carousel');
         if (!carousel) return;
         const itemWidth = carousel.offsetWidth / this.itemsVisible;
-        const threshold = itemWidth / 4; // drag threshold
+        const threshold = itemWidth / 4; 
 
-        carousel.style.transition = ''; // restore transition
+        carousel.style.transition = ''; 
 
         if (diffX > threshold) {
             this.prev();
@@ -207,7 +202,6 @@ class Carousel extends HTMLElement {
 
         if (this.autoplay) this.startAutoScroll();
     }
-    // --- Drag handlers end ---
 
     render() {
         if (!this.shadowRoot) return;
@@ -252,7 +246,6 @@ class Carousel extends HTMLElement {
         wrapper.addEventListener('mouseleave', this._onMouseLeave);
         wrapper.addEventListener('keydown', this._onKeyDown);
 
-        // Add pointer drag listener:
         wrapper.addEventListener('pointerdown', this._onPointerDown);
 
         if (this.autoplay) {
