@@ -250,7 +250,7 @@ class CompView extends HTMLElement {
               <span slot="tooltip-content">You clicked me!</span>
               </tooltip-elm>
             </div>
-            <div class="tab-panel" label="Caroussel">
+            <div class="tab-panel" label="Caroussel" active>
               <p class="text-muted">Usage:</p>
               <div class="code-wrapper">
                 <span class="code">${this._usage('carousel')}</span>
