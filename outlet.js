@@ -17,7 +17,7 @@ class Outlet extends HTMLElement {
         this.render();
     }
 
-    loadView(viewName, showLoader = true) {
+    loadView(viewName, showLoader = true, prefix = '') {
         if (!this.shadowRoot) return;
         const loader = this.shadowRoot.querySelector('.loader');
         
@@ -32,7 +32,7 @@ class Outlet extends HTMLElement {
             <span>Loading ${viewName}...</span>`;
         }
 
-        import(`./src/views/${viewName}.js`)
+        import(`${prefix}${viewName}.js`)
         .then(() => {
             this.view = `<${viewName}></${viewName}>`;
         })

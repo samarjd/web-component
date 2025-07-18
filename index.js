@@ -27,13 +27,13 @@ const app = {
     // Load initial view
     const initialView = getActiveNavigate();
     if (outlet && initialView) {
-      outlet.loadView(initialView, false);
+      outlet.loadView(initialView, false, './src/views/');
     }
 
     document.addEventListener('navigate', ({ detail }) => {
       const { navigate } = detail;
       if (outlet) {
-        outlet.loadView(navigate);
+        outlet.loadView(navigate, true, './src/views/');
       }
       navItems.forEach(item =>
         item.toggleAttribute('active', item.getAttribute('navigate') === navigate)
