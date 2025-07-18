@@ -6,7 +6,7 @@ class Icon extends HTMLElement {
         this.attachShadow({ mode: 'open' });
 
         this.name  = this.getAttribute('name') || '';
-        this.size  = this.getAttribute('size') || getComputedStyle(this).fontSize || '10';
+        this.size  = this.getAttribute('size') || getComputedStyle(this).fontSize.replace('px', '') || '10';
         this.title = this.getAttribute('title') || '';
         this.fill  = this.getAttribute('fill') || 'currentColor';   
         this.class = this.getAttribute('class') || '';

@@ -7,6 +7,8 @@ import '../library/breadcrumb/breadcrumb.js';
 import '../library/icons/icons.js';
 import "../library/breadcrumb/breadcrumb.js";
 import Alert from "../library/alert/alert.js";
+import '../library/accordion/accordion.js';
+
 class CompView extends HTMLElement {
   constructor() {
     super();
@@ -80,7 +82,7 @@ class CompView extends HTMLElement {
 
         const alert = new Alert();
         alert.type = alertType;
-        if(position) alert.position = position;
+        if (position) alert.position = position;
         if (dismissible) alert.setAttribute('dismissible', '');
         alert.innerHTML = 'This is an alert message.';
 
@@ -129,49 +131,6 @@ class CompView extends HTMLElement {
   }
 
   get template() {
-    const tabUsage = `    &lt;tab-elm justify=&quot;center&quot; type=&quot;primary&quot;&gt;
-        &lt;div class=&quot;tab-panel&quot; label=&quot;Tab 1&quot; active&gt;
-            This is a tab panel n°1.
-            ...
-        &lt;/div&gt;
-        &lt;div class=&quot;tab-panel&quot; label=&quot;Tab 2&quot;&gt;
-            This is a tab panel n°2.
-            ...
-        &lt;/div&gt;
-    &lt;/tab-elm&gt;`;
-
-    const btnUsage = `    &lt;button-elm id=&quot;btn1&quot; color=&quot;dark&quot; border shadow margin=&quot;0.25rem&quot; title=&quot;Button 1&quot;&gt;Button 1&lt;/button-elm&gt;`;
-
-    const notFoundUsage = `    &lt;not-found&gt;&lt;/not-found&gt;`;
-
-    const tooltipUsage = `    &lt;tooltip-elm position=&quot;top&quot; trigger=&quot;hover&quot;&gt;
-      Hover over me
-    &lt;/tooltip-elm&gt;`;
-
-    const carouselUsage = `    &lt;carousel-elm items-visible=&quot;3&quot; autoplay&gt;&lt;/carousel-elm&gt;
-    Attributes:
-    - items-visible: Number of items visible at once (default: 3)
-    - autoplay: Enable automatic scrolling (default: false)
-
-    Properties:
-    - data: [{ img: 'image_url', content: 'Description' }, ...]`;
-
-    const breadcrumbUsage = `    &lt;breadcrumb-elm&gt;
-      &lt;span class=&quot;breadcrumb-item&quot; link=&quot;view-count&quot;&gt;Home&lt/span&gt;
-      &lt;span class=&quot;breadcrumb-item&quot; link=&quot;view-components&quot;&gt;Components&lt/span&gt;
-      &lt;span class=&quot;breadcrumb-item&quot; active&gt;View Components&lt/span&gt;
-      ...
-    &lt;/breadcrumb-elm&gt;`;
-
-    const alertUsage = `    &lt;alert type=&quot;primary&quot; position=&quot;top-right&quot;&gt;
-      This is a primary alert.
-    &lt;/alert&gt;
-
-    Attributes:
-    - type: Alert type (primary, danger, light, warning, success, dark)
-    - position: Alert position (top-right, bottom-right, top-left, bottom-left, default: bottom-right)
-    - dismissible: If true, the alert can be dismissed by the user (default: false, delay: 2000ms)`;
-
     return `
     <section class="input-view">
       <card-elm type="primary">
@@ -183,13 +142,13 @@ class CompView extends HTMLElement {
             <div class="tab-panel" label="Syntax" active>
               <p class="text-muted">Usage:</p>
               <div class="code-wrapper">
-              <span class="code">${tabUsage}</span>
+              <span class="code">${this._usage('tab')}</span>
               </div>
             </div>
             <div class="tab-panel" label="Dynamic Data fetch">
               <p class="text-muted">Usage:</p>
               <div class="code-wrapper">
-              <span class="code">${btnUsage}</span>
+              <span class="code">${this._usage('btn')}</span>
               </div>
               <div class="button-container">
               ${this.families.length > 0 ?
@@ -205,7 +164,7 @@ class CompView extends HTMLElement {
             <div class="tab-panel" label="Not found">
               <p class="text-muted">Usage:</p>
               <div class="code-wrapper">
-              <span class="code">${notFoundUsage}</span>
+              <span class="code">${this._usage('notFound')}</span>
               </div>
               <hr>
               <not-found></not-found>
@@ -213,7 +172,7 @@ class CompView extends HTMLElement {
             <div class="tab-panel" label="Tooltip">
               <p class="text-muted">Usage:</p>
               <div class="code-wrapper">
-              <span class="code">${tooltipUsage}</span>
+              <span class="code">${this._usage('tooltip')}</span>
               </div>
               <hr>
               <tooltip-elm position="top" trigger="hover">
@@ -228,14 +187,14 @@ class CompView extends HTMLElement {
             <div class="tab-panel" label="Caroussel">
               <p class="text-muted">Usage:</p>
               <div class="code-wrapper">
-                <span class="code">${carouselUsage}</span>
+                <span class="code">${this._usage('carousel')}</span>
               </div>
               <carousel-elm items-visible="3" autoplay></carousel-elm>
             </div>
             <div class="tab-panel" label="Breadcrumb">
               <p class="text-muted">Usage:</p>
               <div class="code-wrapper">
-                <span class="code">${breadcrumbUsage}</span>
+                <span class="code">${this._usage('breadcrumb')}</span>
               </div>
               <breadcrumb-elm separator=">">
                 <span class="breadcrumb-item" link="view-count">Home</span>
@@ -246,7 +205,7 @@ class CompView extends HTMLElement {
             <div class="tab-panel" label="Alert">
               <p class="text-muted">Usage:</p>
               <div class="code-wrapper">
-                <span class="code">${alertUsage}</span>
+                <span class="code">${this._usage('alert')}</span>
               </div>
               <button-elm class="alert-trigger" color="primary" border shadow>Show Alert</button-elm>
               <button-elm class="alert-trigger" color="danger" border dismissible="true">Show Dismissible Alert</button-elm>
@@ -255,7 +214,29 @@ class CompView extends HTMLElement {
               <button-elm class="alert-trigger" color="success" border position="top-right">Show Top Right Alert</button-elm>
               <button-elm class="alert-trigger" color="dark" border shadow position="bottom-left">Show Bottom Left Alert</button-elm>
             </div>
-            <div class="tab-panel" label="Accordion">
+            <div class="tab-panel" label="Accordion" active>
+              <p class="text-muted">Usage:</p>
+              <div class="code-wrapper">
+                <span class="code">${this._usage('accordion')}</span>
+              </div>
+              <accordion-elm>
+                <div slot="header">Accordion Header</div>
+                <div slot="content">
+                  <p>This is the content of the accordion. It can contain any HTML elements.</p>
+                </div>
+              </accordion-elm>
+              <accordion-elm>
+                <div slot="header">Another Accordion Header</div>
+                <div slot="content">
+                  <p>This is another accordion content. You can add more accordions as needed.</p>
+                </div>
+              </accordion-elm>
+              <accordion-elm expanded>
+                <div slot="header">Expanded Accordion Header</div>
+                <div slot="content">
+                  <p>This accordion is expanded by default. You can control the expanded state using the 'expanded' attribute.</p>
+                </div>
+              </accordion-elm>
             </div>
           </tab-elm>
         </div>
@@ -280,6 +261,71 @@ class CompView extends HTMLElement {
       ${this.styles}
       ${this.template}
     `;
+  }
+
+  _usage(type) {
+    const usage = [
+      {
+        tab: `    &lt;tab-elm justify=&quot;center&quot; type=&quot;primary&quot;&gt;
+          &lt;div class=&quot;tab-panel&quot; label=&quot;Tab 1&quot; active&gt;
+            This is a tab panel n°1.
+            ...
+          &lt;/div&gt;
+          &lt;div class=&quot;tab-panel&quot; label=&quot;Tab 2&quot;&gt;
+            This is a tab panel n°2.
+            ...
+          &lt;/div&gt;
+        &lt;/tab-elm&gt;`
+      },
+      { 
+        btn: `    &lt;button-elm id=&quot;btn1&quot; color=&quot;dark&quot; border shadow margin=&quot;0.25rem&quot; title=&quot;Button 1&quot;&gt;Button 1&lt;/button-elm&gt;`
+      },
+      { notFound: `    &lt;not-found&gt;&lt;/not-found&gt;`},
+      { 
+        tooltip: `    &lt;tooltip-elm position=&quot;top&quot; trigger=&quot;hover&quot;&gt;
+          Hover over me
+        &lt;/tooltip-elm&gt;`
+      },
+      { 
+        carousel: `    &lt;carousel-elm items-visible=&quot;3&quot; autoplay&gt;&lt;/carousel-elm&gt;
+        Attributes:
+        - items-visible: Number of items visible at once (default: 3)
+        - autoplay: Enable automatic scrolling (default: false)
+
+        Properties:
+        - data: [{ img: 'image_url', content: 'Description' }, ...]`
+      },
+      { 
+        breadcrumb: `    &lt;breadcrumb-elm&gt;
+          &lt;span class=&quot;breadcrumb-item&quot; link=&quot;view-count&quot;&gt;Home&lt/span&gt;
+          &lt;span class=&quot;breadcrumb-item&quot; link=&quot;view-components&quot;&gt;Components&lt/span&gt;
+          &lt;span class=&quot;breadcrumb-item&quot; active&gt;View Components&lt/span&gt;
+          ...
+        &lt;/breadcrumb-elm&gt;`
+      },
+      { 
+        alert: `    &lt;alert type=&quot;primary&quot; position=&quot;top-right&quot;&gt;
+          This is a primary alert.
+        &lt;/alert&gt;
+
+        Attributes:
+        - type: Alert type (primary, danger, light, warning, success, dark)
+        - position: Alert position (top-right, bottom-right, top-left, bottom-left, default: bottom-right)
+        - dismissible: If true, the alert can be dismissed by the user (default: false, delay: 2000ms)`
+      },
+      { 
+        accordion: `    &lt;accordion-elm expanded&gt;
+          &lt;div slot=&quot;header&quot;&gt;Accordion Header&lt;/div&gt;
+          &lt;div slot=&quot;content&quot;&gt;
+            &lt;p&gt;This is the content of the accordion. It can contain any HTML elements.&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/accordion-elm&gt;
+
+        Attributes:
+        - expanded: If true, the accordion is expanded by default (default: false)`
+      },
+    ];
+    return usage.find(item => item[type])?.[type] || 'No usage found for this type.';
   }
 }
 
