@@ -6,32 +6,10 @@ import './outlet.js';
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/service-worker.js')
-      .then(() => console.log('✅ Service Worker registered'))
-      .catch(err => console.error('❌ Service Worker failed', err));
+      .then(() => {})
+      .catch(err => console.error('Service Worker failed', err));
   });
 }
-
-let deferredPrompt = null;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('🔥 beforeinstallprompt fired');
-
-  e.preventDefault();
-  deferredPrompt = e;
-
-  if (confirm("You can install this app!")) {
-    deferredPrompt.prompt();
-
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the install prompt');
-      } else {
-        console.log('User dismissed the install prompt');
-      }
-      deferredPrompt = null;
-    });
-  }
-});
 
 const app = {
   render() {
