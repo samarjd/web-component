@@ -80,7 +80,7 @@ class CompView extends HTMLElement {
 
         const alert = new Alert();
         alert.type = alertType;
-        alert.position = position || 'top-right';
+        if(position) alert.position = position;
         if (dismissible) alert.setAttribute('dismissible', '');
         alert.innerHTML = 'This is an alert message.';
 
@@ -163,6 +163,15 @@ class CompView extends HTMLElement {
       ...
     &lt;/breadcrumb-elm&gt;`;
 
+    const alertUsage = `    &lt;alert type=&quot;primary&quot; position=&quot;top-right&quot;&gt;
+      This is a primary alert.
+    &lt;/alert&gt;
+
+    Attributes:
+    - type: Alert type (primary, danger, light, warning, success, dark)
+    - position: Alert position (top-right, bottom-right, top-left, bottom-left, default: bottom-right)
+    - dismissible: If true, the alert can be dismissed by the user (default: false, delay: 2000ms)`;
+
     return `
     <section class="input-view">
       <card-elm type="primary">
@@ -237,10 +246,7 @@ class CompView extends HTMLElement {
             <div class="tab-panel" label="Alert">
               <p class="text-muted">Usage:</p>
               <div class="code-wrapper">
-                <span class="code">&lt;alert-elm type=&quot;primary&quot; position=&quot;top-right&quot; dismissible&gt;
-                  &lt;span slot=&quot;title&quot;&gt;Alert Title&lt;/span&gt;
-                  This is an alert message.
-                &lt;/alert-elm&gt;</span>
+                <span class="code">${alertUsage}</span>
               </div>
               <button-elm class="alert-trigger" color="primary" border shadow>Show Alert</button-elm>
               <button-elm class="alert-trigger" color="danger" border dismissible="true">Show Dismissible Alert</button-elm>

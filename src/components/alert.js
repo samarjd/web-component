@@ -1,4 +1,3 @@
-let alertsGlobal = [];
 class Alert extends HTMLElement {
     constructor() {
         super();
@@ -25,26 +24,62 @@ class Alert extends HTMLElement {
     }
 
     connectedCallback() {
-        alertsGlobal.push(this);
+        if (!window.alertsGlobal) window.alertsGlobal = [];
+        window.alertsGlobal.push(this);
+
         this.render();
     }
 
     disconnectedCallback() {
-        const index = alertsGlobal.indexOf(this);
-        if (index > -1) {
-            alertsGlobal.splice(index, 1);
+        if (window.alertsGlobal) {
+            window.alertsGlobal = window.alertsGlobal.filter(a => a !== this);
         }
     }
 
     get styles() {
         return `
             <style>
+                :host{
+                    --alert-color: #495057;
+                    --alert-bg: #fcfcfd;
+                    --alert-border: #e9ecef;
+                    --alert-shadow: rgba(0, 0, 0, 0.15);
+
+                    --alert-bg-primary: #cfe2ff;
+                    --alert-bg-success: #d1e7dd;
+                    --alert-bg-warning: #fff3cd;
+                    --alert-bg-danger: #f8d7da;
+                    --alert-bg-info: #cff4fc;
+                    --alert-bg-dark: #e2e3e5;
+                    --alert-bg-light: #fcfcfd;
+
+                    --alert-color-primary: #052c65;
+                    --alert-color-success: #0a3622;
+                    --alert-color-warning: #664d03;
+                    --alert-color-danger: #58151c;
+                    --alert-color-info: #055160;
+                    --alert-color-dark: #495057;
+                    --alert-color-light: #495057;
+
+                    --alert-border-primary: #9ec5fe;
+                    --alert-border-success: #a3cfbb;
+                    --alert-border-warning: #ffe69c;
+                    --alert-border-danger: #f1aeb5;
+                    --alert-border-info: #9eeaf9;
+                    --alert-border-dark: #adb5bd;
+                    --alert-border-light: #e9ecef;
+
+                    --alert-spadding: 0.75rem 1rem;
+                    --alert-radius: 0.2rem;
+                    --alert-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.15);
+                }
                 .alert {
                     position: fixed;
                     z-index: 2000;
-                    padding: 0.75rem 1rem;
-                    border-radius: 0.2rem;
-                    box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.15);
+                    padding: var(--alert-spadding);
+                    border-radius: var(--alert-radius);
+                    box-shadow: var(--alert-shadow);
+                    border: 1px solid var(--alert-border);
                     font-family: sans-serif;
                     width: min(300px, 25vw);
                     transition: transform 0.2s ease-in-out;
@@ -61,32 +96,39 @@ class Alert extends HTMLElement {
                     color: inherit;
                 }
                 .alert {
-                    background-color: #ffffffff;
-                    color: #212529;
+                    background-color: var(--alert-bg);
+                    color: var(--alert-color);
+                    border-color: var(--alert-border);
                 }
                 .alert-primary {
-                    background-color: #007bff;
-                    color: #ffffff;
+                    background-color: var(--alert-bg-primary);
+                    color: var(--alert-color-primary);
+                    border-color: var(--alert-border-primary);
                 }
                 .alert-success {
-                    background-color: #28a745;
-                    color: #ffffff;
+                    background-color: var(--alert-bg-success);
+                    color: var(--alert-color-success);
+                    border-color: var(--alert-border-success);
                 }
                 .alert-warning {
-                    background-color: #ffc107;
-                    color: #212529;
+                    background-color: var(--alert-bg-warning);
+                    color: var(--alert-color-warning);
+                    border-color: var(--alert-border-warning);
                 }
                 .alert-danger {
-                    background-color: #dc3545;
-                    color: #ffffff;
+                    background-color: var(--alert-bg-danger);
+                    color: var(--alert-color-danger);
+                    border-color: var(--alert-border-danger);
                 }
                 .alert-info {
-                    background-color: #17a2b8;
-                    color: #ffffff;
+                    background-color: var(--alert-bg-info);
+                    color: var(--alert-color-info);
+                    border-color: var(--alert-border-info);
                 }
                 .alert-dark {
-                    background-color: #343a40;
-                    color: #ffffff;
+                    background-color: var(--alert-bg-dark);
+                    color: var(--alert-color-dark);
+                    border-color: var(--alert-border-dark);
                 }
                 .alert-bottom-right {
                     bottom: 1rem;
@@ -137,7 +179,7 @@ class Alert extends HTMLElement {
     }
 
     _bindEvents() {
-        const alerts = alertsGlobal.filter(alert => alert.position === this.position);
+        const alerts = window.alertsGlobal.filter(alert => alert.position === this.position);
         const previousAlerts = alerts.filter(alert => alert !== this);
 
         if (previousAlerts.length > 0) {
