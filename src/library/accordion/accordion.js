@@ -121,8 +121,7 @@ class Accordion extends HTMLElement {
 
         // Set initial state
         if (this.expanded) {
-            const fullHeight = inner.scrollHeight;
-            content.style.maxHeight = fullHeight + 'px';
+            content.style.maxHeight = 'unset'; // Allow natural height
         }
 
         // Toggle listeners init
