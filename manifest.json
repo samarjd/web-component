@@ -1,16 +1,36 @@
 {
-    "name": "Web Comp 2",
-    "short_name": "WebComp2",
+    "name": "Web Component App",
+    "short_name": "WebComp",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#1976d2",
-    "description": "A web application for Web Comp 2.",
     "icons": [
         {
-            "src": "src/images/logo.png",
-            "sizes": "192x192",
+            "src": "src/images/logos/icon-1.png",
+            "type": "image/png",
+            "sizes": "280x280"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "screenshots": [
+        {
+            "src": "src/images/screenshorts/screenshot1.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "src/images/screenshorts/screenshot2.png",
+            "sizes": "640x1136",
             "type": "image/png"
         }
-    ]
+    ],
+    "description": "A web component application demonstrating various features.",
+    "orientation": "landscape-primary",
+    "display_override": [
+        "window-controls-overlay",
+        "minimal-ui"
+    ],
+    "lang": "en-US",
+    "dir": "ltr"
 }
