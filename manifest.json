@@ -2,7 +2,7 @@
     "name": "Web Component App",
     "short_name": "WebComp",
     "start_url": ".",
-    "display": "standalone",
+    "display": "fullscreen",
     "icons": [
         {
             "src": "src/images/logos/icon-1.png",

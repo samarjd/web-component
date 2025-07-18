@@ -22,8 +22,8 @@ const app = {
         <div class="nav-item" navigate="view-count">Counter</div>
         <div class="nav-item" navigate="view-layout">Layout</div>
         <div class="nav-item" navigate="view-drag">Drag & Drop</div>
-        <div class="nav-item" navigate="view-inputs">Inputs</div>
-        <div class="nav-item" navigate="view-components" active>Components</div>
+        <div class="nav-item" navigate="view-inputs" active>Inputs</div>
+        <div class="nav-item" navigate="view-components>Components</div>
         <div class="nav-item" navigate="view-timeline">Timeline</div>
         <div class="nav-item" navigate="view">etc....</div>
       </nav-bar>

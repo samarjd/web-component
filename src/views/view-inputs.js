@@ -7,6 +7,7 @@ import '../library/button/button.js';
 import '../library/text-editor/text-editor.js';
 import '../library/switch/switch.js';
 import '../library/tooltip/tooltip.js';
+import '../library/input/input.js';
 
 import '../library/icons/icons.js';
 
@@ -201,6 +202,32 @@ class InputsView extends HTMLElement {
                           <switch-box type="outline-danger" disabled checked>Disabled switch</switch-box>
                         </col-elm>
                       </row-elm>
+                    </div>
+                </card-elm>
+            </col-elm>
+            <col-elm class="col-12">
+                <card-elm type="primary">
+                    <div slot="card-header">
+                      Input element
+                    </div>
+                    <div slot="card-body">
+                        <row-elm>
+                          <col-elm class="col-6">
+                            <h2>Default inputs</h2>
+                            <label for="input-date">Date input</label>
+                            <input-elm type="date" id="input-date" placeholder="Select date" name="input-date"></input-elm>
+                            <label for="input-number">Number input</label>
+                            <input-elm type="number" id="input-number" placeholder="Enter number" name="input-number" min="0" step="2"></input-elm>
+                            <label for="input-tel">Telephone input</label>
+                            <input-elm type="tel" id="input-tel" placeholder="+(216)** *** ***" name="input-tel" pattern="^(\\+216\\s?)?[0-9]{2}([\\s]?[0-9]{2}){3}$"></input-elm>
+                          </col-elm>
+                          <col-elm class="col-6">
+                            <h2>Floating label inputs</h2>
+                            <input-elm type="text" id="input-text" name="input-text" label="Enter text"></input-elm>
+                            <input-elm type="email" id="input-email" name="input-email" label="Enter email"></input-elm>
+                            <input-elm type="password" id="input-password" name="input-password" label="Password input"></input-elm>
+                          </col-elm>
+                        </row-elm>
                     </div>
                 </card-elm>
             </col-elm>
