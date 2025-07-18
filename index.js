@@ -1,11 +1,42 @@
 import "./src/library/navbar/nav-bar.js";
 import './outlet.js';
 
-'use_strict';
+'use strict';
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(() => console.log('✅ Service Worker registered'))
+      .catch(err => console.error('❌ Service Worker failed', err));
+  });
+}
+
+let deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('🔥 beforeinstallprompt fired');
+
+  e.preventDefault();
+  deferredPrompt = e;
+
+  if (confirm("You can install this app!")) {
+    deferredPrompt.prompt();
+
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
+      }
+      deferredPrompt = null;
+    });
+  }
+});
 
 const app = {
   render() {
     document.body.innerHTML = `
+      <button id="install-btn" style="display:none;">Install App</button>
       <nav-bar type="light" direction="" justify="center">
         <div class="nav-item" navigate="view-count">Counter</div>
         <div class="nav-item" navigate="view-layout">Layout</div>
