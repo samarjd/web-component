@@ -16,8 +16,6 @@ const registerServiceWorker = () => {
 const app = {
   render() {
     document.body.innerHTML = `
-      <button id="install-btn" style="display:none;">Install App</button>
-      
       <nav-bar type="light" direction="" justify="center">
         <div class="nav-item" navigate="view-count">Counter</div>
         <div class="nav-item" navigate="view-layout">Layout</div>
