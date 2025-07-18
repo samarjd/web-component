@@ -1,5 +1,5 @@
-import "./src/components/navbar/nav-bar.js";
-import './src/views/outlet.js';
+import "./src/library/navbar/nav-bar.js";
+import './outlet.js';
 
 'use_strict';
 

@@ -1,5 +1,5 @@
-import '../components/notfound.js';    
-import '../components/icons.js';
+import './src/component/notfound.js';    
+import './src/library/icons/icons.js';
 class Outlet extends HTMLElement {
     constructor() {
         super();
@@ -32,7 +32,7 @@ class Outlet extends HTMLElement {
             <span>Loading ${viewName}...</span>`;
         }
 
-        import(`./${viewName}.js`)
+        import(`./src/views/${viewName}.js`)
         .then(() => {
             this.view = `<${viewName}></${viewName}>`;
         })

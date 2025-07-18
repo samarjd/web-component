@@ -1,4 +1,4 @@
-import Button from './button.js';
+import Button from '../button/button.js';
 
 class Tab extends HTMLElement {
     constructor() {

@@ -1,7 +1,7 @@
-import "../components/row.js";
-import "../components/col.js";
-import "../components/card.js";
-import '../components/icons.js';
+import "../library/layout/row.js";
+import "../library/layout/col.js";
+import "../library/layout/card.js";
+import '../library/icons/icons.js';
 
 class Layout extends HTMLElement {
   constructor() {

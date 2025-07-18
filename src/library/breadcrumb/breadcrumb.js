@@ -1,4 +1,4 @@
-import './navbar/nav-link.js';
+import '../navbar/nav-link.js';
 class Breadcrumb extends HTMLElement {
     constructor() {
         super();

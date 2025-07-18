@@ -1,4 +1,4 @@
-import icons from '../svg/icons-collection.js';
+import icons from './icons-collection.js';
 
 class Icon extends HTMLElement {
     constructor() {

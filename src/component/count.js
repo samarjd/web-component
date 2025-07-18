@@ -1,10 +1,10 @@
-import "./card.js";
-import "./button.js";
-import Modal from './modal.js';
-import './icons.js';
-import "./dropdown.js";
-import "./row.js";
-import "./col.js";
+import "../library/layout/card.js";
+import "../library/button/button.js";
+import Modal from '../library/modal/modal.js';
+import '../library/icons/icons.js';
+import "../library/dropdown/dropdown.js";
+import "../library/layout/row.js";
+import "../library/layout/col.js";
 
 class Counter extends HTMLElement {
   constructor() {

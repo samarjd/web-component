@@ -1,6 +1,6 @@
-import './icons.js';
-import './row.js';
-import './col.js';
+import '../icons/icons.js';
+import '../layout/row.js';
+import '../layout/col.js';
 
 class SelectElm extends HTMLElement {
     constructor() {

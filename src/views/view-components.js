@@ -1,12 +1,12 @@
-import "../components/card.js";
-import '../components/tab.js';
-import '../components/button.js';
-import '../components/tooltip/tooltip.js';
-import '../components/caroussel/caroussel.js';
-import '../components/breadcrumb.js';
-import '../components/icons.js';
-import "../components/breadcrumb.js";
-import Alert from "../components/alert.js";
+import "../library/layout/card.js";
+import '../library/tab/tab.js';
+import '../library/button/button.js';
+import '../library/tooltip/tooltip.js';
+import '../library/caroussel/caroussel.js';
+import '../library/breadcrumb/breadcrumb.js';
+import '../library/icons/icons.js';
+import "../library/breadcrumb/breadcrumb.js";
+import Alert from "../library/alert/alert.js";
 class CompView extends HTMLElement {
   constructor() {
     super();
@@ -254,6 +254,8 @@ class CompView extends HTMLElement {
               <button-elm class="alert-trigger" color="warning" border position="top-left">Show Top Left Alert</button-elm>
               <button-elm class="alert-trigger" color="success" border position="top-right">Show Top Right Alert</button-elm>
               <button-elm class="alert-trigger" color="dark" border shadow position="bottom-left">Show Bottom Left Alert</button-elm>
+            </div>
+            <div class="tab-panel" label="Accordion">
             </div>
           </tab-elm>
         </div>

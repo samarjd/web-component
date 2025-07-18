@@ -1,10 +1,10 @@
-import "../components/drag-and-drop/drag-container.js";
-import '../components/drag-and-drop/drag-zone.js';
-import '../components/drag-and-drop/drag-item.js';
+import "../library/drag-and-drop/drag-container.js";
+import '../library/drag-and-drop/drag-zone.js';
+import '../library/drag-and-drop/drag-item.js';
 
-import "../components/row.js";
-import "../components/col.js";
-import "../components/card.js";
+import "../library/layout/row.js";
+import "../library/layout/col.js";
+import "../library/layout/card.js";
 
 class DragAndDrop extends HTMLElement {
     constructor() {

@@ -1,14 +1,14 @@
-import "../components/row.js";
-import "../components/col.js";
-import "../components/card.js";
-import '../components/tab.js';
-import "../components/select.js";
-import '../components/button.js';
-import '../components/text-editor/text-editor.js';
-import '../components/switch.js';
-import '../components/tooltip/tooltip.js';
+import "../library/layout/row.js";
+import "../library/layout/col.js";
+import "../library/layout/card.js";
+import '../library/tab/tab.js';
+import "../library/select/select.js";
+import '../library/button/button.js';
+import '../library/text-editor/text-editor.js';
+import '../library/switch/switch.js';
+import '../library/tooltip/tooltip.js';
 
-import '../components/icons.js';
+import '../library/icons/icons.js';
 
 class InputsView extends HTMLElement {
   constructor() {

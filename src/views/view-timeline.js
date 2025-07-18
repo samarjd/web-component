@@ -1,5 +1,5 @@
-import "../components/card.js";
-import "../components/timeline/timeline.js";
+import "../library/layout/card.js";
+import "../library/timeline/timeline.js";
 
 class TimelineV extends HTMLElement {
   constructor() {

@@ -1,4 +1,4 @@
-import './icons.js';
+import '../icons/icons.js';
 
 class Modal extends HTMLElement {
     constructor() {

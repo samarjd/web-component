@@ -21,7 +21,6 @@ class switchBox extends HTMLElement {
             if (name === 'disabled') {
                 this.disabled = newValue !== 'false';
             }else if (name === 'type') {
-                console.warn('The "type" attribute is deprecated. Use class names instead.');
                 this.type = newValue;
             }else if (name === 'checked') {
                 this.isChecked = newValue !== 'false';
