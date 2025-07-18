@@ -346,7 +346,7 @@ class CompView extends HTMLElement {
   _usage(type) {
     const usage = [
       {
-        tab: `       &lt;tab-elm justify=&quot;center&quot; type=&quot;primary&quot;&gt;
+        tab: `        &lt;tab-elm justify=&quot;center&quot; type=&quot;primary&quot;&gt;
           &lt;div class=&quot;tab-panel&quot; label=&quot;Tab 1&quot; active&gt;
             This is a tab panel n°1.
             ...
@@ -358,16 +358,16 @@ class CompView extends HTMLElement {
         &lt;/tab-elm&gt;`
       },
       { 
-        btn: `       &lt;button-elm id=&quot;btn1&quot; color=&quot;dark&quot; border shadow margin=&quot;0.25rem&quot; title=&quot;Button 1&quot;&gt;Button 1&lt;/button-elm&gt;`
+        btn: `        &lt;button-elm id=&quot;btn1&quot; color=&quot;dark&quot; border shadow margin=&quot;0.25rem&quot; title=&quot;Button 1&quot;&gt;Button 1&lt;/button-elm&gt;`
       },
-      { notFound: `     &lt;not-found&gt;&lt;/not-found&gt;`},
+      { notFound: `        &lt;not-found&gt;&lt;/not-found&gt;`},
       { 
-        tooltip: `     &lt;tooltip-elm position=&quot;top&quot; trigger=&quot;hover&quot;&gt;
+        tooltip: `        &lt;tooltip-elm position=&quot;top&quot; trigger=&quot;hover&quot;&gt;
           Hover over me
         &lt;/tooltip-elm&gt;`
       },
       { 
-        carousel: `      &lt;carousel-elm items-visible=&quot;3&quot; autoplay&gt;&lt;/carousel-elm&gt;
+        carousel: `        &lt;carousel-elm items-visible=&quot;3&quot; autoplay&gt;&lt;/carousel-elm&gt;
         Attributes:
         - items-visible: Number of items visible at once (default: 3)
         - autoplay: Enable automatic scrolling (default: false)
@@ -376,7 +376,7 @@ class CompView extends HTMLElement {
         - data: [{ img: 'image_url', content: 'Description' }, ...]`
       },
       { 
-        breadcrumb: `      &lt;breadcrumb-elm&gt;
+        breadcrumb: `        &lt;breadcrumb-elm&gt;
           &lt;span class=&quot;breadcrumb-item&quot; link=&quot;view-count&quot;&gt;Home&lt/span&gt;
           &lt;span class=&quot;breadcrumb-item&quot; link=&quot;view-components&quot;&gt;Components&lt/span&gt;
           &lt;span class=&quot;breadcrumb-item&quot; active&gt;View Components&lt/span&gt;
@@ -384,7 +384,7 @@ class CompView extends HTMLElement {
         &lt;/breadcrumb-elm&gt;`
       },
       { 
-        alert: `       &lt;alert type=&quot;primary&quot; position=&quot;top-right&quot;&gt;
+        alert: `        &lt;alert type=&quot;primary&quot; position=&quot;top-right&quot;&gt;
           This is a primary alert.
         &lt;/alert&gt;
 
@@ -394,7 +394,7 @@ class CompView extends HTMLElement {
         - dismissible: If true, the alert can be dismissed by the user (default: false, delay: 2000ms)`
       },
       { 
-        accordion: `       &lt;accordion-elm expanded&gt;
+        accordion: `        &lt;accordion-elm expanded&gt;
           &lt;div slot=&quot;header&quot;&gt;Accordion Header&lt;/div&gt;
           &lt;div slot=&quot;content&quot;&gt;
             &lt;p&gt;This is the content of the accordion. It can contain any HTML elements.&lt;/p&gt;
@@ -405,7 +405,7 @@ class CompView extends HTMLElement {
         - expanded: If true, the accordion is expanded by default (default: false)`
       },
       {
-        scrollspy: `       &lt;scroll-spy&gt;
+        scrollspy: `        &lt;scroll-spy&gt;
           &lt;section id=&quot;section1&quot;&gt;
           ...
           &lt;/section&gt;
