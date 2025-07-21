@@ -73,7 +73,7 @@ class DragAndDrop extends HTMLElement {
                     <card-elm type="card-warning">
                         <div slot="card-header">Placeholder Slot Component in Figma</div>
                         <div slot="card-body">
-                        <img src="https://i.ytimg.com/vi/3AXLubczRoY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC52LFmAEQ2SOcO5wpl2jfJwxmynQ" alt="Placeholder Image" loading="lazy" style="width: 100%; height: 10rem; object-fit: cover;">
+                        <img src="src/images/backgrounds/hq720.webp" alt="Placeholder Image" loading="lazy" style="width: 100%; height: 10rem; object-fit: cover;">
                         </div>
                         <div slot="card-footer">This is a one-quarter width card</div>
                     </card-elm>

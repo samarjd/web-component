@@ -61,7 +61,7 @@ class Layout extends HTMLElement {
             <div slot="card-body">
               <row-elm>
                 <col-elm class="col-3">
-                  <img src="https://fontawesome.com/images/icons/features/feature-chisel.png" alt="Chisel Icon" loading="lazy" style="width: 100%; height: 4.9rem; object-fit: cover;">
+                  <img src="src/images/backgrounds/feature-chisel.webp" alt="Chisel Icon" loading="lazy" style="width: 100%; height: 4.9rem; object-fit: cover;">
                 </col-elm>
                 <col-elm class="col-9">
                   <p>FA Chisel is sharp, bold, and full of character - like a sculptor's finest work. In this case, the sculptor is the amazing designer Laura Bohill. With its thick and thin strokes, this pack cuts through the noise and inscribes its way into the spotlight.</p>
@@ -112,7 +112,7 @@ class Layout extends HTMLElement {
         <col-elm class="col-5">
           <card-elm>
             <div slot="card-body">
-              <img src="https://images.ctfassets.net/s600jj41gsex/3bPe6bHCAho65XqaEGG4Uy/42b0e7c931d7b59f5eee83cca5ff58b4/_TinyMCE__Blog__What_is_Placeholder_Text_in_Web_Development_.png?w=768&q=80&fit=scale" alt="Placeholder Image" loading="lazy" style="width: 100%;height: 14.7rem;object-fit: cover;">
+              <img src="src/images/backgrounds/_TinyMCE__Blog__What_is_Placeholder_Text_in_Web_Development_.webp" alt="Placeholder Image" loading="lazy" style="width: 100%;height: 14.7rem;object-fit: cover;">
             </div>
           </card-elm>
         </col-elm>
@@ -120,7 +120,7 @@ class Layout extends HTMLElement {
           <card-elm type="card-warning">
             <div slot="card-header">Placeholder Slot Component in Figma</div>
             <div slot="card-body">
-              <img src="https://i.ytimg.com/vi/3AXLubczRoY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC52LFmAEQ2SOcO5wpl2jfJwxmynQ" alt="Placeholder Image" loading="lazy" style="width: 100%; height: 10rem; object-fit: cover;">
+              <img src="src/images/backgrounds/hq720.webp" alt="Placeholder Image" loading="lazy" style="width: 100%; height: 10rem; object-fit: cover;">
             </div>
             <div slot="card-footer">This is a one-quarter width card</div>
           </card-elm>

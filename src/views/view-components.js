@@ -28,43 +28,43 @@ class CompView extends HTMLElement {
 
     const data = [
       {
-        img: 'https://fontawesome.com/images/icons/packs/notdog/notdog-mockup-01.png',
+        img: 'src/images/backgrounds/notdog-mockup-01.webp',
         content: 'Notdog icon from FontAwesome.',
       },
       {
-        img: 'https://fontawesome.com/images/icons/features/feature-chisel.png',
+        img: 'src/images/backgrounds/feature-chisel.webp',
         content: 'Chisel icon from FontAwesome.',
       },
       {
-        img: 'https://fontawesome.com/images/icons/packs/jelly/jelly-mockup-05.png',
+        img: 'src/images/backgrounds/jelly-mockup-05.webp',
         content: 'Jelly icon pack from FontAwesome.',
       },
       {
-        img: 'https://fontawesome.com/images/icons/packs/sharp-duotone/sharp-duotone-mockup-05.png',
+        img: 'src/images/backgrounds/sharp-duotone-mockup-05.webp',
         content: 'Sharp Duotone icon pack from FontAwesome.',
       },
       {
-        img: 'https://fontawesome.com/images/icons/packs/thumbprint/thumbprint-mockup-04.png',
+        img: 'src/images/backgrounds/thumbprint-mockup-04.webp',
         content: 'Thumbprint icon pack from FontAwesome.',
       },
       {
-        img: 'https://fontawesome.com/images/icons/packs/slab/slab-mockup-04.png',
+        img: 'src/images/backgrounds/slab-mockup-04.webp',
         content: 'Slab icon pack from FontAwesome.',
       },
       {
-        img: 'https://fontawesome.com/images/icons/packs/classic/classic-mockup-04.png',
+        img: 'src/images/backgrounds/classic-mockup-04.webp',
         content: 'Classic icon pack from FontAwesome.',
       },
       {
-        img: 'https://fontawesome.com/images/icons/packs/whiteboard/whiteboard-mockup-01.png',
+        img: 'src/images/backgrounds/whiteboard-mockup-01.webp',
         content: 'Whiteboard icon pack from FontAwesome.',
       },
       {
-        img: 'https://fontawesome.com/images/icons/packs/whiteboard/whiteboard-mockup-05.png',
+        img: 'src/images/backgrounds/whiteboard-mockup-05.webp',
         content: 'Whiteboard pack continued.',
       },
       {
-        img: 'https://fontawesome.com/images/icons/packs/whiteboard/whiteboard-mockup-06.png',
+        img: 'src/images/backgrounds/whiteboard-mockup-06.webp',
         content: 'More from the Whiteboard pack.',
       }
     ];

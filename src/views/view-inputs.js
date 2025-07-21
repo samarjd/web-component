@@ -107,10 +107,10 @@ class InputsView extends HTMLElement {
                 <div slot="card-body">
                     <label for="multi-select">Source request</label>
                     <select-elm type="multiple" placeholder="Select a source" name="source" close-on-select="false" required id="multi-select" allow-clear="true">
-                        <option data-avatar="src/images/pf_1.jpg">Email</option>
-                        <option data-avatar="src/images/pf_2.png">Phone</option>
-                        <option data-avatar="src/images/pf_3.jpg">Chat</option>
-                        <option data-avatar="src/images/pf_4.png">Social Media</option>
+                        <option data-avatar="src/images/users/pf_1.jpg">Email</option>
+                        <option data-avatar="src/images/users/pf_2.png">Phone</option>
+                        <option data-avatar="src/images/users/pf_3.jpg">Chat</option>
+                        <option data-avatar="src/images/users/pf_4.png">Social Media</option>
                         <option>Website</option>
                         <option>In Person</option>
                         <option>Referral</option>
