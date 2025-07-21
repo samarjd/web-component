@@ -43,7 +43,6 @@ class Alert extends HTMLElement {
                     --alert-color: #495057;
                     --alert-bg: #fcfcfd;
                     --alert-border: #e9ecef;
-                    --alert-shadow: rgba(0, 0, 0, 0.15);
 
                     --alert-bg-primary: #cfe2ff;
                     --alert-bg-success: #d1e7dd;
@@ -69,14 +68,14 @@ class Alert extends HTMLElement {
                     --alert-border-dark: #adb5bd;
                     --alert-border-light: #e9ecef;
 
-                    --alert-spadding: 0.75rem 1rem;
+                    --alert-padding: 0.75rem 1rem;
                     --alert-radius: 0.2rem;
                     --alert-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.15);
                 }
                 .alert {
                     position: fixed;
                     z-index: 2000;
-                    padding: var(--alert-spadding);
+                    padding: var(--alert-padding);
                     border-radius: var(--alert-radius);
                     box-shadow: var(--alert-shadow);
                     border: 1px solid var(--alert-border);
@@ -163,7 +162,7 @@ class Alert extends HTMLElement {
             <div class="alert alert-${this.type} alert-${this.position}">
                 <div class="alert-body">
                     <slot></slot>
-                    ${this.dismissible ? `<button class="close-btn" @click="${this.dismiss}">&times;</button>` : ''}
+                    ${this.dismissible ? `<button class="close-btn">&times;</button>` : ''}
                 </div>
             </div>
         `;
@@ -179,8 +178,8 @@ class Alert extends HTMLElement {
     }
 
     _bindEvents() {
-        const alerts = window.alertsGlobal.filter(alert => alert.position === this.position);
-        const previousAlerts = alerts.filter(alert => alert !== this);
+        const alerts = window.alertsGlobal.filter(al => al.position === this.position);
+        const previousAlerts = alerts.filter(al => al !== this);
 
         if (previousAlerts.length > 0) {
             const isTop = this.position.includes('top');
@@ -216,10 +215,28 @@ class Alert extends HTMLElement {
             alertEl.style.transition = 'opacity 0.4s, transform 0.4s';
             alertEl.style.opacity = '0';
             alertEl.style.transform = 'translateY(20px)';
-            setTimeout(() => this.remove(), 400);
+            setTimeout(() => {
+                this.remove();
+                this._restackAlerts(this.position);
+            }, 150);
         } else {
             this.remove();
+            this._restackAlerts(this.position);
         }
+    }
+
+    _restackAlerts(position) {
+        const alerts = (window.alertsGlobal || []).filter(alert => alert.position === position);
+        const isTop = position.includes('top');
+        let offset = 0;
+
+        alerts.forEach(alert => {
+            const element = alert.shadowRoot?.querySelector('.alert');
+            if (element) {
+                element.style.transform = `translateY(${isTop ? offset : -offset}px)`;
+                offset += element.offsetHeight + 10;
+            }
+        });
     }
 }
 
