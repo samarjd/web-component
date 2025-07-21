@@ -42,7 +42,7 @@ class notFound extends HTMLElement {
             ${this.styles}
             <h1>404 - Page Not Found</h1>
             <p>Sorry, the page you are looking for does not exist.</p>
-            <img src="/src/images/not-found.gif" alt="Not Found Image" />
+            <img src="/src/images/not-found.gif" alt="Not Found Image" lazyload="true" decoding="async" />
         `;
     }
 }

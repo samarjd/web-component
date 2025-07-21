@@ -227,7 +227,7 @@ class Carousel extends HTMLElement {
         </div>
         <div class="dots" role="tablist" aria-label="Carousel navigation dots">
             ${Array(dotsCount).fill(0).map((_, i) =>
-                `<button class="dot${i === 0 ? ' active' : ''}" role="tab" aria-selected="${i === 0}" aria-controls="slide-${i}" tabindex="${i === 0 ? '0' : '-1'}" data-index="${i}" aria-label="Go to slide ${i}"></button>`)
+                `<button class="dot${i === 0 ? ' active' : ''}" role="tab" aria-selected="${i === 0}" tabindex="${i === 0 ? '0' : '-1'}" data-index="${i}" aria-label="Go to slide ${i}"></button>`)
             .join('')}
         </div>
         `;
