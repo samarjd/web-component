@@ -129,7 +129,7 @@ class SelectElm extends HTMLElement {
                     border-top: none; 
                     max-height: min(200px, 40vh); 
                     overflow-y: auto; 
-                    z-index: 1; 
+                    z-index: var(--zindex-dropdown, 1000);
                     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
                 }
                 .dropdown div { 

@@ -112,7 +112,7 @@ class Layout extends HTMLElement {
         <col-elm class="col-5">
           <card-elm>
             <div slot="card-body">
-              <img src="src/images/backgrounds/_TinyMCE__Blog__What_is_Placeholder_Text_in_Web_Development_.webp" alt="Placeholder Image" loading="lazy" style="width: 100%;height: 14.7rem;object-fit: cover;">
+              <img src="src/images/backgrounds/TinyMCE__Blog__What_is_Placeholder_Text_in_Web_Development_.webp" alt="Placeholder Image" loading="lazy" style="width: 100%;height: 14.7rem;object-fit: cover;">
             </div>
           </card-elm>
         </col-elm>

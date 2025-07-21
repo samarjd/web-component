@@ -85,7 +85,7 @@ class NavBar extends HTMLElement {
           width: ${this.direction === 'vertical' ? 'max(20vw,200px)' : '100%'};
           top: 0;
           left: 0;
-          z-index: 1001;
+          z-index: var(--zindex-sticky, 1080);
         }
         ul {
           ${this.direction === 'vertical' 

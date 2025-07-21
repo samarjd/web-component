@@ -37,7 +37,6 @@ class TextEditor extends HTMLElement {
                 height: 100%;
                 font-family: sans-serif;
                 border: 1px solid #e6e6e6;
-                z-index: 1000;
             }
 
             .toolbar {

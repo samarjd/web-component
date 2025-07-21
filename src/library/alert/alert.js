@@ -74,7 +74,7 @@ class Alert extends HTMLElement {
                 }
                 .alert {
                     position: fixed;
-                    z-index: 2000;
+                    z-index: var(--zindex-alert, 1070);
                     padding: var(--alert-padding);
                     border-radius: var(--alert-radius);
                     box-shadow: var(--alert-shadow);

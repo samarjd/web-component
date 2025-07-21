@@ -52,7 +52,7 @@ class Dropdown extends HTMLElement {
                 box-shadow: 0 2px 6px rgba(0,0,0,0.1);
                 border-radius: 0.3rem;
                 margin-top: 0.2rem;
-                z-index: 1000;
+                z-index: var(--zindex-dropdown, 1000);
                 min-width: 92px;
                 max-height: 200px;
                 overflow-y: auto;

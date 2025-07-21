@@ -47,7 +47,7 @@ class Tooltip extends HTMLElement {
           opacity: 0;
           pointer-events: none;
           transition: opacity 0.2s ease;
-          z-index: 10;
+          z-index: var(--zindex-tooltip, 1050);
         }
 
         .tooltip-box.visible {

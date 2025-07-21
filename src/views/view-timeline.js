@@ -13,19 +13,19 @@ class TimelineV extends HTMLElement {
     const timeline = this.shadowRoot.querySelector('.timeline-object');
     timeline.events = [
         {
-            avatar: '/src/images/pf_1.jpg',
+            avatar: '/src/images/users/pf_1.jpg',
             title: 'Event 1',
             description: 'This is the first event in the timeline.',
             time: '2025-06-21T10:00:00Z'
         },
         {
-            avatar: '/src/images/pf_2.png',
+            avatar: '/src/images/users/pf_2.png',
             title: 'Event 2',
             description: 'This is the second event in the timeline.',
             time: '2025-07-02T11:00:00Z'
         },
         {
-            avatar: '/src/images/pf_4.png',
+            avatar: '/src/images/users/pf_4.png',
             title: 'Event 3',
             description: 'This is the third event in the timeline.',
             time: '2025-07-13T12:00:00Z'

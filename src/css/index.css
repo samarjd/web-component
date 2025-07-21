@@ -1,3 +1,14 @@
+:root {
+    --zindex-dropdown:           1000;
+    --zindex-fixed:              1010;
+    --zindex-modal-backdrop:     1020;
+    --zindex-modal:              1030;
+    --zindex-popover:            1040;
+    --zindex-tooltip:            1050;
+    --zindex-loader:             1060;
+    --zindex-alert:              1070;
+    --zindex-sticky:             1080;
+}
 *{
     box-sizing: border-box;
     margin: 0;

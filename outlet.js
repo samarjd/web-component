@@ -51,7 +51,7 @@ class Outlet extends HTMLElement {
                 width: 100%;
                 height: 100vh;
                 background-color: #52565e30;
-                z-index: 1000;
+                z-index: var(--zindex-loader, 1060);
             }
         </style>
     `;

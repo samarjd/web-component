@@ -106,7 +106,7 @@ class Modal extends HTMLElement {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    z-index: 1000;
+                    z-index: var(--zindex-modal, 1030);
                 }
                 .modal.show {
                     display: flex;
@@ -148,7 +148,7 @@ class Modal extends HTMLElement {
                     width: ${contentWidth};
                     overflow: auto;
                     border-radius: 5px;
-                    z-index: 1000;
+                    z-index: var(--zindex-modal, 1030);
                 }
                 .modal-body {
                     padding: 1rem;
@@ -168,7 +168,7 @@ class Modal extends HTMLElement {
                     width: 100%;
                     height: 100%;
                     position: fixed;
-                    z-index: 999;
+                    z-index: var(--zindex-modal-backdrop, 1020);
                     top: 0;
                     left: 0;
                 }
