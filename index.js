@@ -40,13 +40,13 @@ const app = {
 
     main.innerHTML = `
       <nav-bar type="light" direction="" justify="center">
-        <div class="nav-item" navigate="view-count">Counter</div>
-        <div class="nav-item" navigate="view-layout">Layout</div>
-        <div class="nav-item" navigate="view-drag">Drag & Drop</div>
-        <div class="nav-item" navigate="view-inputs">Inputs</div>
-        <div class="nav-item" navigate="view-components" active>Components</div>
-        <div class="nav-item" navigate="view-timeline">Timeline</div>
-        <div class="nav-item" navigate="view">etc....</div>
+        <div class="nav-item" navigate="view-count" href="javascript:void(0);">Counter</div>
+        <div class="nav-item" navigate="view-layout" href="javascript:void(0);">Layout</div>
+        <div class="nav-item" navigate="view-drag" href="javascript:void(0);">Drag & Drop</div>
+        <div class="nav-item" navigate="view-inputs" href="javascript:void(0);">Inputs</div>
+        <div class="nav-item" navigate="view-components" href="javascript:void(0);" active>Components</div>
+        <div class="nav-item" navigate="view-timeline" href="javascript:void(0);">Timeline</div>
+        <div class="nav-item" navigate="view" href="javascript:void(0);">etc....</div>
       </nav-bar>
       <app>
         <outlet-content class="content"></outlet-content>
@@ -54,7 +54,6 @@ const app = {
     `;
 
     this.initNavigation();
-    initNotifications(); // 🔔 Ask & notify here
   },
 
   initNavigation() {
@@ -70,6 +69,7 @@ const app = {
 
     document.addEventListener('navigate', ({ detail }) => {
       const { navigate } = detail;
+      initNotifications();
 
       if (outlet) {
         outlet.loadView(navigate, true, './src/views/');
