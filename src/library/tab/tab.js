@@ -1,5 +1,3 @@
-import Button from '../button/button.js';
-
 class Tab extends HTMLElement {
     constructor() {
         super();
@@ -18,8 +16,10 @@ class Tab extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        if (oldValue !== newValue) this[name] = newValue;
-        this.render();
+        if (oldValue !== newValue) {
+            this[name] = newValue;
+            this.render();
+        }
     }
 
     getColor(color) {
@@ -46,8 +46,8 @@ class Tab extends HTMLElement {
             .tab-list {
                 background-color: ${this.getColor(this.type || 'primary')};
                 color: white;
-                padding: 5px 2px;
-                border-radius: 2rem;
+                padding: 5px;
+                border-radius: ${this.direction === 'column' ? '15px' : '2rem'};
                 display: flex;
                 flex-direction: ${this.direction || 'row'};
                 justify-content: ${this.justify || 'flex-start'};
@@ -61,11 +61,17 @@ class Tab extends HTMLElement {
 
             .tab-item {
                 cursor: pointer;
-                transition: border-bottom 0.3s, color 0.3s;
-                transition: opacity 0.3s ease-in-out;
+                padding: 0.25rem 1rem;
+                border-radius: 2rem;
+                background-color: transparent;
+                color: ${this.type !== 'light' ? 'white' : this.getColor('dark')};
+                border: 1px solid transparent;
+                transition: opacity 0.3s ease-in-out, background-color 0.3s;
             }
 
             .tab-item.active {
+                background-color: ${this.type !== 'light' ? this.getColor('light') : this.getColor('primary')};
+                color: ${this.type !== 'light' ? this.getColor('dark') : 'white'};
                 opacity: 1;
             }
 
@@ -76,7 +82,7 @@ class Tab extends HTMLElement {
             ::slotted(.tab-panel.active) {
                 display: block;
             }
-            </style>
+        </style>
         `;
     }
 
@@ -103,20 +109,19 @@ class Tab extends HTMLElement {
             const label = panel.getAttribute('label') || `Tab ${index + 1}`;
             if (panel.hasAttribute('active')) this.active = index;
 
-            const tabItemBtn = new Button();
-            Object.assign(tabItemBtn, {
-                type: 'li',
-                rounded: true,
-                title: label + ' tab',
-                margin: 0,
-                innerHTML: `${label}`,
-            }).addEventListener('click', () => {
+            const tabItem = document.createElement('li');
+            tabItem.className = 'tab-item';
+            tabItem.textContent = label;
+            tabItem.setAttribute('role', 'tab');
+            tabItem.setAttribute('aria-label', label + ' tab');
+
+            tabItem.addEventListener('click', () => {
                 this.selectTab(index);
             });
 
-            tabList.appendChild(tabItemBtn);
+            tabList.appendChild(tabItem);
 
-            this.tabs.push(tabItemBtn);
+            this.tabs.push(tabItem);
             this.panels.push(panel);
         });
 
@@ -128,7 +133,6 @@ class Tab extends HTMLElement {
 
         this.tabs.forEach((tab, i) => {
             tab.classList.toggle('active', i === index);
-            tab.setAttribute('color', i === index ? 'light' : (this.type || 'primary'));
         });
 
         this.panels.forEach((panel, i) => {
