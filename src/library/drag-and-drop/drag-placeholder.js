@@ -17,9 +17,9 @@ class Placeholder extends HTMLElement {
             }
             .placeholder {
                 text-align: center;
-                color: #007bff;
+                color: #0066ff;
                 background-color:rgba(138, 159, 236, 0.2);
-                border: 1px dashed #007bff;
+                border: 1px dashed #0066ff;
                 border-radius: 5px;
                 padding: 0.5rem 1rem;
                 margin-bottom: 1rem;

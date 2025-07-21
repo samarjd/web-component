@@ -126,7 +126,7 @@ class Counter extends HTMLElement {
               padding: 5px 10px; 
               border: 1px solid #ccc; 
               border-radius: 4px; 
-              outline: 1px solid #007bff; 
+              outline: 1px solid #0066ff; 
               width: 100%; 
               box-sizing: border-box;
             }

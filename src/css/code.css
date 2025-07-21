@@ -7,7 +7,7 @@
     line-height: 1.5;
     background: linear-gradient(to top, #98dcfa 0%, #e1f5fe 5%) 0 0;
     background-size: 100% 17px;
-    border-left: 4px solid #007bff;
+    border-left: 4px solid #0066ff;
     margin: 0 0 1rem;
 }
 
@@ -21,7 +21,7 @@
 
 .code-wrapper::before {
     content: "HTML";
-    color: #007bff;
+    color: #0066ff;
     position: absolute;
     right: 0;
     top: 0;

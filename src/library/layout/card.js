@@ -49,7 +49,7 @@ class Card extends HTMLElement {
                 }
 
                 .card-default { border-left: 4px solid #6c757d; }
-                .card-primary { border-left: 4px solid #007bff; }
+                .card-primary { border-left: 4px solid #0066ff; }
                 .card-success { border-left: 4px solid #2fab67; }
                 .card-warning { border-left: 4px solid #ffc107; }
                 .card-danger  { border-left: 4px solid #dc3545; }

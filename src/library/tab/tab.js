@@ -25,7 +25,7 @@ class Tab extends HTMLElement {
     getColor(color) {
         const colors = {
             default: '#6c757d',
-            primary: '#007bff',
+            primary: '#0066ff',
             success: '#198754',
             danger: '#dc3545',
             warning: '#ffc107',

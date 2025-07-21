@@ -75,7 +75,7 @@ class Dragzone extends HTMLElement {
             }
 
             :host(.dragged-over) {
-                border-color: #007bff;
+                border-color: #0066ff;
             }
 
             h5{

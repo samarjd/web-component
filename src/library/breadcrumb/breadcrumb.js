@@ -60,7 +60,7 @@ class Breadcrumb extends HTMLElement {
                 margin: 0;
             }
             .breadcrumb li {
-                color: #007bff;
+                color: #0066ff;
                 font-size: 0.875rem;
                 font-weight: normal;
                 margin-right: 0.5rem;
@@ -77,8 +77,8 @@ class Breadcrumb extends HTMLElement {
                 color: #6c757d;
             }
             nav-link:hover {
-                color: #007bff;
-                border-bottom-color: #007bff;
+                color: #0066ff;
+                border-bottom-color: #0066ff;
             }
             nav-link {
                 border-bottom: 1px solid #cccccc00;

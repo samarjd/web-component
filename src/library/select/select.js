@@ -173,7 +173,7 @@ class SelectElm extends HTMLElement {
                     text-align: right; 
                 }
                 .select-all-btn { 
-                    color: #007bff;
+                    color: #0066ff;
                     text-align: left; 
                 }                
                 .clear-btn:hover { 
