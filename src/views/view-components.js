@@ -10,6 +10,7 @@ import Alert from "../library/alert/alert.js";
 import '../library/accordion/accordion.js';
 import '../library/scrollspy/scrollspy.js';
 import '../library/icons/icons.js';
+import '../library/badge/badge.js'
 
 class CompView extends HTMLElement {
   constructor() {
@@ -108,9 +109,9 @@ class CompView extends HTMLElement {
     if (!buttonContainer) return;
     buttonContainer.innerHTML = this._families.length > 0
       ? this._families.map(family => `
-        <button-elm id="${family.id}" color="dark" border shadow margin="0.25rem" title="${family.text}">
+        <badge-elm id="${family.id}" type="light-primary" pill title="${family.text}">
           ${family.text}
-        </button-elm>
+        </badge-elm>
       `).join('')
       : `<p class="text-muted">No families data available.</p>`;
   }
@@ -221,13 +222,13 @@ class CompView extends HTMLElement {
               </div>
               <div class="button-container">
               ${this.families.length > 0 ?
-        this.families.map(family => `
-                  <button-elm id="${family.id}" color="dark" border shadow margin="0.25rem" title="${family.text}">
+                this.families.map(family => `
+                  <badge-elm id="${family.id}" type="light-primary" pill  title="${family.text}">
                     ${family.text}
-                  </button-elm>
+                  </badge-elm>
                 `).join('') :
-        `<p class="text-muted">No families data available.</p>`
-      }
+                `<p class="text-muted">No families data available.</p>`
+              }
               </div>
             </div>
             <div class="tab-panel" label="Not found">
