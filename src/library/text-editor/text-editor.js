@@ -96,7 +96,7 @@ class TextEditor extends HTMLElement {
                 <icon-elm data-cmd="bold" name="bold" size="${this.size}" title="Bold"></icon-elm>
                 <icon-elm data-cmd="italic" name="italic" size="${this.size}" title="Italic"></icon-elm>
                 <icon-elm data-cmd="underline" name="underline" size="${this.size}" title="Underline"></icon-elm>
-                <icon-elm data-cmd="removeFormat" name="remove-format" size="${this.size}" title="Remove Format"></icon-elm>
+                <icon-elm data-cmd="removeFormat" name="text-slash" size="${this.size}" title="Remove Format"></icon-elm>
 
                 <span class="separator"></span>
 

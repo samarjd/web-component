@@ -195,7 +195,7 @@ class Modal extends HTMLElement {
                 <div class="modal-header">
                     <slot name="modal-header"></slot>
                     <span class="close" title="Close Modal">
-                        <icon-elm name="close" size="10" color="#fff" title="Settings"></icon-elm>
+                        <icon-elm type="solid" name="xmark" size="10" color="#fff" title="Settings"></icon-elm>
                     </span>
                 </div>
                 <div class="modal-body">

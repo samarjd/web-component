@@ -94,7 +94,7 @@ class Accordion extends HTMLElement {
                 <div class="accordion-header">
                     <slot name="header"></slot>
                     <button class="accordion-toggle" aria-expanded="${this.expanded ? 'true' : 'false'}">
-                        <icon-elm class="icon" name="chevron-down"></icon-elm>
+                        <icon-elm type="solid" class="icon" name="chevron-down"></icon-elm>
                     </button>
                 </div>
                 <div class="accordion-content" aria-expanded="${this.expanded ? 'true' : 'false'}">

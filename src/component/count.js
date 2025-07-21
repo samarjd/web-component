@@ -95,7 +95,7 @@ class Counter extends HTMLElement {
             <small>
               💡<i>Check all counter params</i>     
                 <button-elm id="counterModalTrigger" color="primary" border shadow is-icon title="Add a new counter">
-                  <icon-elm name="gear" size="15" title="Settings"></icon-elm>
+                  <icon-elm type="solid" name="gear" size="15" title="Settings"></icon-elm>
                 </button-elm>
             </small>
           </div>
@@ -155,7 +155,7 @@ class Counter extends HTMLElement {
               <input type="hidden" name="type" value="${this.type}">
               <div class="text-right mt-1">
                 <button-elm type="submit" class="increment-btn" color="${this.type}" border shadow title="Set step value">
-                  <icon-elm name="edit" size="15" title="Settings"></icon-elm> Save 
+                  <icon-elm type="solid" name="edit" size="15" title="Settings"></icon-elm> Save 
                 </button-elm>
               </div>
             </form>

@@ -9,6 +9,7 @@ import "../library/breadcrumb/breadcrumb.js";
 import Alert from "../library/alert/alert.js";
 import '../library/accordion/accordion.js';
 import '../library/scrollspy/scrollspy.js';
+import '../library/icons/icons.js';
 
 class CompView extends HTMLElement {
   constructor() {
@@ -257,6 +258,7 @@ class CompView extends HTMLElement {
               <div class="code-wrapper">
                 <span class="code">${this._usage('carousel')}</span>
               </div>
+              <icon-2 name="clock" size="20" fill="#000" class="spin"></icon-2>
               <carousel-elm items-visible="3" autoplay></carousel-elm>
             </div>
             <div class="tab-panel" label="Breadcrumb">

@@ -8,7 +8,24 @@ const registerServiceWorker = () => {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/service-worker.js')
         .then(() => {})
-        .catch(err => console.error('❌ Service Worker failed', err));
+        .catch(err => console.error('Service Worker failed', err));
+    });
+  }
+};
+
+const initNotifications = () => {
+  if (!('Notification' in window)) return;
+
+  const asked = localStorage.getItem('notifs_asked');
+  if (!asked) {
+    Notification.requestPermission().then(permission => {
+      localStorage.setItem('notifs_asked', '1');
+      if (permission === 'granted') {
+        new Notification("Notifications enabled", {
+          body: "You'll now receive important alerts.",
+          icon: "./src/images/logos/icon-1.png"
+        });
+      }
     });
   }
 };
@@ -17,7 +34,7 @@ const app = {
   render() {
     const main = document.getElementById('main');
     if (!main) {
-      console.error('❌ main element not found');
+      console.error('main element not found');
       return;
     }
 
@@ -37,6 +54,7 @@ const app = {
     `;
 
     this.initNavigation();
+    initNotifications(); // 🔔 Ask & notify here
   },
 
   initNavigation() {
@@ -45,13 +63,11 @@ const app = {
     const getActiveNavigate = () =>
       document.querySelector('.nav-item[active]')?.getAttribute('navigate') || '';
 
-    // Load initial view
     const initialView = getActiveNavigate();
     if (outlet && initialView) {
       outlet.loadView(initialView, false, './src/views/');
     }
 
-    // Handle navigation change
     document.addEventListener('navigate', ({ detail }) => {
       const { navigate } = detail;
 

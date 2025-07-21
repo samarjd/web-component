@@ -22,14 +22,7 @@ class Outlet extends HTMLElement {
         const loader = this.shadowRoot.querySelector('.loader');
         
         if (showLoader) {
-            !loader ? this.view += `
-            <div class="loader">
-                <icon-elm class="spin" name="spinner" size="10" title="Loading view"></icon-elm>
-                <span>Loading ${viewName}...</span>
-            </div>`
-            : loader.innerHTML = `
-            <icon-elm class="spin" name="spinner" size="25" title="Loading view"></icon-elm>
-            <span>Loading ${viewName}...</span>`;
+            if(!loader) this.view += `<div class="loader"></div>`;
         }
 
         import(`${prefix}${viewName}.js`)
@@ -55,21 +48,10 @@ class Outlet extends HTMLElement {
                 position: absolute;
                 top: 0;
                 left: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 0.5rem;
                 width: 100%;
                 height: 100vh;
-                font-size: 1.25rem;
-                color: #4c4c4c;
-                background-color: #52565e40;
+                background-color: #52565e30;
                 z-index: 1000;
-            }
-
-            .loader icon-elm {
-                top: 0;
-                margin-right: 0.5rem;
             }
         </style>
     `;

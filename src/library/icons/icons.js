@@ -1,29 +1,36 @@
-import icons from './icons-collection.js';
-
 class Icon extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
 
         this.name  = this.getAttribute('name') || '';
-        this.size  = this.getAttribute('size') || getComputedStyle(this).fontSize.replace('px', '') || '10';
+        this.size  = this.getAttribute('size') || '16';
         this.title = this.getAttribute('title') || '';
-        this.fill  = this.getAttribute('fill') || 'currentColor';   
+        this.fill  = this.getAttribute('fill') || 'currentColor';
         this.class = this.getAttribute('class') || '';
-    }
+        this.type  = this.getAttribute('type') || 'solid';
 
-    connectedCallback() {
-        this.render();
+        if (!window._svgCache) {
+            window._svgCache = new Map();
+        }
     }
 
     static get observedAttributes() {
-        return ['title', 'size', 'color', 'name', 'fill', 'class'];
+        return ['name', 'size', 'title', 'fill', 'class', 'type'];
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        if(newValue !== oldValue) {
-            this[name] = newValue;
+    attributeChangedCallback(name, oldVal, newVal) {
+        if (oldVal !== newVal) {
+            if (name === 'type') {
+                this.type = ['regular', 'solid', 'brands'].includes(newVal) ? newVal : 'regular';
+            } else {
+                this[name] = newVal;
+            }
+            this.render();
         }
+    }
+
+    connectedCallback() {
         this.render();
     }
 
@@ -32,17 +39,13 @@ class Icon extends HTMLElement {
             <style>
                 :host, .icon {
                     display: inline-block;
-                    position: relative;
-                    top: 10%;
-                    left: 0;
-                    fill: ${this.fill};
                 }
 
                 .icon svg {
                     fill: ${this.fill};
-                    font-size: ${this.size}px;
                     width: ${this.size}px;
                     height: ${this.size}px;
+                    display: block;
                 }
 
                 .icon.spin {
@@ -50,49 +53,40 @@ class Icon extends HTMLElement {
                 }
 
                 @keyframes spin {
-                    0% { transform: rotate(0deg); }
-                    100% { transform: rotate(360deg); }
-                }
-
-                .icon.pulse {
-                    animation: pulse 1.5s infinite;
-                }
-                @keyframes pulse {
-                    0% { transform: scale(1); }
-                    50% { transform: scale(1.2); }
-                    100% { transform: scale(1); }
-                }
-
-                .icon.blink {
-                    animation: blink 1.5s infinite;
-                }
-                @keyframes blink {
-                    0%, 100% { opacity: 1; }
-                    50% { opacity: 0; }
-                }
-
-                .icon.shake {
-                    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) infinite;
-                }
-                @keyframes shake {
-                    10%, 90% { transform: translate3d(-1px, 0, 0); }
-                    20%, 80% { transform: translate3d(2px, 0, 0); }
-                    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-                    40%, 60% { transform: translate3d(4px, 0, 0); }
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
                 }
             </style>
         `;
     }
 
-    get template() {
-        const iconSvg = icons[this.name] || '';
-        return `<span class="icon ${this.class}" title="${this.title}">${iconSvg || ''}</span>`;
+    async render() {
+        const path = `./src/library/icons/svgs/${this.type}/${this.name}.svg`;
+
+        // Check cache first
+        if (window._svgCache.has(path)) {
+            this.updateIcon(window._svgCache.get(path));
+            return;
+        }
+
+        try {
+            const res = await fetch(path);
+            const text = res.ok ? await res.text() : '<!-- icon not found -->';
+            window._svgCache.set(path, text);
+            this.updateIcon(text);
+        } catch {
+            const fallback = '<!-- icon not found -->';
+            window._svgCache.set(path, fallback);
+            this.updateIcon(fallback);
+        }
     }
 
-    render() {
+    updateIcon(svgContent) {
         this.shadowRoot.innerHTML = `
             ${this.styles}
-            ${this.template}
+            <span class="icon ${this.class}" title="${this.title}">
+                ${svgContent}
+            </span>
         `;
     }
 }

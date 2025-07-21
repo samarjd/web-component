@@ -77,7 +77,7 @@ class Layout extends HTMLElement {
               <row-elm>
                 <col-elm class="col-11"> Coding Icons</col-elm>
                 <col-elm class="col-1">
-                  <icon-elm name="code" fill="red"></icon-elm>
+                  <icon-elm name="code" type="solid" fill="red"></icon-elm>
                 </col-elm>
               </row-elm>
             </div>
@@ -85,22 +85,22 @@ class Layout extends HTMLElement {
               <p>More than 50 icons for developers, designers, and anyone who loves to code. These icons are designed to be simple, clean, and easy to use in your projects.</p>
               <row-elm align="center" justify="space-between" nowrap="true">
                 <col-elm class="col-2" align="center">
-                  <icon-elm name="code" fill="lightsteelblue" size="20" title="Code"></icon-elm>
+                  <icon-elm type="solid" name="code" fill="lightsteelblue" size="20" title="Code"></icon-elm>
                 </col-elm>
                 <col-elm class="col-2" align="center">
-                  <icon-elm name="bug" fill="lightsteelblue" size="20" title="Bug"></icon-elm>
+                  <icon-elm type="solid" name="bug" fill="lightsteelblue" size="20" title="Bug"></icon-elm>
                 </col-elm>
                 <col-elm class="col-2" align="center">
-                  <icon-elm name="user-secret" fill="lightsteelblue" size="20" title="Secret user"></icon-elm>
+                  <icon-elm type="solid" name="user-secret" fill="lightsteelblue" size="20" title="Secret user"></icon-elm>
                 </col-elm>
                 <col-elm class="col-2" align="center">
-                  <icon-elm name="keyboard" fill="lightsteelblue" size="20" title="Keyboard"></icon-elm>
+                  <icon-elm type="solid" name="keyboard" fill="lightsteelblue" size="20" title="Keyboard"></icon-elm>
                 </col-elm>
                 <col-elm class="col-2" align="center">
-                  <icon-elm name="code-fork" fill="lightsteelblue" size="20" title="Code fork"></icon-elm>
+                  <icon-elm type="solid" name="code-fork" fill="lightsteelblue" size="20" title="Code fork"></icon-elm>
                 </col-elm>
                 <col-elm class="col-2" align="center">
-                  <icon-elm name="terminal" fill="lightsteelblue" size="20" title="Terminal"></icon-elm>
+                  <icon-elm type="solid" name="terminal" fill="lightsteelblue" size="20" title="Terminal"></icon-elm>
                 </col-elm>
               </row-elm>
               <h3>More icons</h3>
