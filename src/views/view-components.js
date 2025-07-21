@@ -103,7 +103,9 @@ class CompView extends HTMLElement {
 
   set families(data) {
     this._families = data;
-    this.shadowRoot.querySelector('.button-container').innerHTML = this._families.length > 0
+    const buttonContainer = this.shadowRoot.querySelector('.button-container');
+    if (!buttonContainer) return;
+    buttonContainer.innerHTML = this._families.length > 0
       ? this._families.map(family => `
         <button-elm id="${family.id}" color="dark" border shadow margin="0.25rem" title="${family.text}">
           ${family.text}
@@ -134,7 +136,7 @@ class CompView extends HTMLElement {
   get template() {
 
     const scrollSpyTemplate = [
-      {        
+      {
         id: 'section1',
         title: 'What is Lorem Ipsum?',
         content: `
@@ -194,7 +196,7 @@ class CompView extends HTMLElement {
         Aenean sodales rutrum vulputate. Pellentesque molestie, tortor at cursus mattis, est tortor facilisis risus, sed pretium nibh erat eu dui. Nullam vitae congue orci. Etiam posuere pharetra luctus. Nunc faucibus ac erat a volutpat. Cras congue, leo eget eleifend tincidunt, tellus est venenatis magna, id congue ante libero ac massa. Proin et sodales lacus. Suspendisse quis blandit orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse eget maximus enim. Proin quam nibh, maximus sit amet posuere nec, fringilla nec ex. Suspendisse nec turpis ligula. Nullam non convallis libero.
         </p>`
       },
-      
+
     ];
 
     return `
@@ -218,13 +220,13 @@ class CompView extends HTMLElement {
               </div>
               <div class="button-container">
               ${this.families.length > 0 ?
-                this.families.map(family => `
+        this.families.map(family => `
                   <button-elm id="${family.id}" color="dark" border shadow margin="0.25rem" title="${family.text}">
                     ${family.text}
                   </button-elm>
                 `).join('') :
-                `<p class="text-muted">No families data available.</p>`
-              }
+        `<p class="text-muted">No families data available.</p>`
+      }
               </div>
             </div>
             <div class="tab-panel" label="Not found">
@@ -326,14 +328,172 @@ class CompView extends HTMLElement {
   }
 
   _fetchFamilies() {
-    fetch('http://localhost/smoft2/application/api/website/sub_api/famille.php?id_company=10')
-      .then(res => res.json())
-      .then(data => {
-        this.families = data.data || [];
-      })
-      .catch(error => {
-        console.error('Error fetching families data:', error);
-      });
+    this.families = [
+      {
+        "id": "229",
+        "text": "ABAT JOUR"
+      },
+      {
+        "id": "234",
+        "text": "ACCESSOIR MEUBLES"
+      },
+      {
+        "id": "265",
+        "text": "ajoutsimpleCategory"
+      },
+      {
+        "id": "266",
+        "text": "ajoutVariantCategory"
+      },
+      {
+        "id": "285",
+        "text": "Alimentaire"
+      },
+      {
+        "id": "225",
+        "text": "APPLIQUE PLAFONNIERE"
+      },
+      {
+        "id": "260",
+        "text": "Bébé"
+      },
+      {
+        "id": "220",
+        "text": "BUREAU CHAISE BUREAU"
+      },
+      {
+        "id": "230",
+        "text": "CADRES DECORATIF"
+      },
+      {
+        "id": "217",
+        "text": "CHAISE TABOURET"
+      },
+      {
+        "id": "211",
+        "text": "CHAMBRE A COUCHER"
+      },
+      {
+        "id": "282",
+        "text": "Chemise"
+      },
+      {
+        "id": "226",
+        "text": "DECORATION MURALE"
+      },
+      {
+        "id": "222",
+        "text": "DIVERS ARTICLES"
+      },
+      {
+        "id": "298",
+        "text": "Electroménager"
+      },
+      {
+        "id": "278",
+        "text": "electronique"
+      },
+      {
+        "id": "296",
+        "text": "Electronique"
+      },
+      {
+        "id": "227",
+        "text": "LAMPADAIRE LAMPE BUREAUX"
+      },
+      {
+        "id": "215",
+        "text": "LIVING PTE CHAUS  CONSOLE MEUBLE D ENTREE"
+      },
+      {
+        "id": "223",
+        "text": "LUSTRES"
+      },
+      {
+        "id": "280",
+        "text": "Matière primaire"
+      },
+      {
+        "id": "233",
+        "text": "MENAGES DECORATION"
+      },
+      {
+        "id": "279",
+        "text": "Meuble bureautique"
+      },
+      {
+        "id": "228",
+        "text": "MEUBLE DE JARDIN"
+      },
+      {
+        "id": "297",
+        "text": "Meuble jardin"
+      },
+      {
+        "id": "270",
+        "text": "moteur"
+      },
+      {
+        "id": "277",
+        "text": "Perceuse"
+      },
+      {
+        "id": "237",
+        "text": "PLATEAU ETAGER"
+      },
+      {
+        "id": "267",
+        "text": "poi"
+      },
+      {
+        "id": "273",
+        "text": "Polo"
+      },
+      {
+        "id": "221",
+        "text": "PORTE MANTEAU PORTE VESTE"
+      },
+      {
+        "id": "214",
+        "text": "SALONS SEJOURS TAB BASSE"
+      },
+      {
+        "id": "219",
+        "text": "SAM(TAB CHAISES)"
+      },
+      {
+        "id": "252",
+        "text": "Services"
+      },
+      {
+        "id": "272",
+        "text": "SNACK"
+      },
+      {
+        "id": "284",
+        "text": "Software"
+      },
+      {
+        "id": "224",
+        "text": "SUSPENSIONS"
+      },
+      {
+        "id": "218",
+        "text": "TABLE TV"
+      },
+      {
+        "id": "216",
+        "text": "TABLES CUISINES"
+      },
+      {
+        "id": "236",
+        "text": "TAPIS PARRURE COUVRE LIT"
+      },
+      {
+        "id": "231",
+        "text": "VERRE CADRE MIRROIR MIRROIR"
+      }
+    ];
   }
 
   render() {
@@ -357,16 +517,16 @@ class CompView extends HTMLElement {
           &lt;/div&gt;
         &lt;/tab-elm&gt;`
       },
-      { 
+      {
         btn: `        &lt;button-elm id=&quot;btn1&quot; color=&quot;dark&quot; border shadow margin=&quot;0.25rem&quot; title=&quot;Button 1&quot;&gt;Button 1&lt;/button-elm&gt;`
       },
-      { notFound: `        &lt;not-found&gt;&lt;/not-found&gt;`},
-      { 
+      { notFound: `        &lt;not-found&gt;&lt;/not-found&gt;` },
+      {
         tooltip: `        &lt;tooltip-elm position=&quot;top&quot; trigger=&quot;hover&quot;&gt;
           Hover over me
         &lt;/tooltip-elm&gt;`
       },
-      { 
+      {
         carousel: `        &lt;carousel-elm items-visible=&quot;3&quot; autoplay&gt;&lt;/carousel-elm&gt;
         Attributes:
         - items-visible: Number of items visible at once (default: 3)
@@ -375,7 +535,7 @@ class CompView extends HTMLElement {
         Properties:
         - data: [{ img: 'image_url', content: 'Description' }, ...]`
       },
-      { 
+      {
         breadcrumb: `        &lt;breadcrumb-elm&gt;
           &lt;span class=&quot;breadcrumb-item&quot; link=&quot;view-count&quot;&gt;Home&lt/span&gt;
           &lt;span class=&quot;breadcrumb-item&quot; link=&quot;view-components&quot;&gt;Components&lt/span&gt;
@@ -383,7 +543,7 @@ class CompView extends HTMLElement {
           ...
         &lt;/breadcrumb-elm&gt;`
       },
-      { 
+      {
         alert: `        &lt;alert type=&quot;primary&quot; position=&quot;top-right&quot;&gt;
           This is a primary alert.
         &lt;/alert&gt;
@@ -393,7 +553,7 @@ class CompView extends HTMLElement {
         - position: Alert position (top-right, bottom-right, top-left, bottom-left, default: bottom-right)
         - dismissible: If true, the alert can be dismissed by the user (default: false, delay: 2000ms)`
       },
-      { 
+      {
         accordion: `        &lt;accordion-elm expanded&gt;
           &lt;div slot=&quot;header&quot;&gt;Accordion Header&lt;/div&gt;
           &lt;div slot=&quot;content&quot;&gt;

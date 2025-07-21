@@ -15,13 +15,13 @@ const registerServiceWorker = () => {
 
 const app = {
   render() {
-    const app = document.getElementById('app');
-    if (!app) {
-      console.error('❌ App element not found');
+    const main = document.getElementById('main');
+    if (!main) {
+      console.error('❌ main element not found');
       return;
     }
 
-    app.innerHTML = `
+    main.innerHTML = `
       <nav-bar type="light" direction="" justify="center">
         <div class="nav-item" navigate="view-count">Counter</div>
         <div class="nav-item" navigate="view-layout">Layout</div>
@@ -31,7 +31,6 @@ const app = {
         <div class="nav-item" navigate="view-timeline">Timeline</div>
         <div class="nav-item" navigate="view">etc....</div>
       </nav-bar>
-
       <app>
         <outlet-content class="content"></outlet-content>
       </app>
