@@ -15,7 +15,13 @@ const registerServiceWorker = () => {
 
 const app = {
   render() {
-    document.body.innerHTML = `
+    const app = document.getElementById('app');
+    if (!app) {
+      console.error('❌ App element not found');
+      return;
+    }
+
+    app.innerHTML = `
       <nav-bar type="light" direction="" justify="center">
         <div class="nav-item" navigate="view-count">Counter</div>
         <div class="nav-item" navigate="view-layout">Layout</div>

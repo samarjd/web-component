@@ -25,6 +25,12 @@ body:has(nav-bar[direction="vertical"]) app{
     overflow-x: hidden;
 }
 
+.noscript{
+    display: none;
+    text-align: center;
+    padding: 1rem;
+}
+
 @media (max-width: 672px) {
     body:has(nav-bar:not([direction="vertical"])){
         margin-top: 5rem;
