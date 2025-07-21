@@ -47,7 +47,7 @@ class NavLink extends HTMLElement {
           color: inherit;          
         }
       </style>
-      <a navigate="${this.navigate}" part="link"></a>
+      <a navigate="${this.navigate}" part="link" href="javascript:void(0);"></a>
       <slot></slot>
     `;
     this._bindEvents();
