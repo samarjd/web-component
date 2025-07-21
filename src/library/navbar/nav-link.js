@@ -42,12 +42,16 @@ class NavLink extends HTMLElement {
         :host.active {
           font-weight: bold;
         }
-        a{
+        button{
+          padding: 0;
+          border: none;
+          outline: none;
+          background: transparent;
           text-decoration: none;
           color: inherit;          
         }
       </style>
-      <a navigate="${this.navigate}" part="link" href="javascript:void(0);"></a>
+      <button navigate="${this.navigate}" part="link" aria-label="Navigate to ${this.navigate}"></button>
       <slot></slot>
     `;
     this._bindEvents();

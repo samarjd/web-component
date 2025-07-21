@@ -40,13 +40,13 @@ const app = {
 
     main.innerHTML = `
       <nav-bar type="light" direction="" justify="center">
-        <div class="nav-item" navigate="view-count" href="javascript:void(0);" aria-label="View Counter">Counter</div>
-        <div class="nav-item" navigate="view-layout" href="javascript:void(0);" aria-label="View Layout">Layout</div>
-        <div class="nav-item" navigate="view-drag" href="javascript:void(0);" aria-label="View Drag & Drop">Drag & Drop</div>
-        <div class="nav-item" navigate="view-inputs" href="javascript:void(0);" aria-label="View Inputs">Inputs</div>
-        <div class="nav-item" navigate="view-components" href="javascript:void(0);" aria-label="View Components" active>Components</div>
-        <div class="nav-item" navigate="view-timeline" href="javascript:void(0);" aria-label="View Timeline">Timeline</div>
-        <div class="nav-item" navigate="view" href="javascript:void(0);" aria-label="Other Views">etc....</div>
+        <div class="nav-item" navigate="view-count" aria-label="View Counter">Counter</div>
+        <div class="nav-item" navigate="view-layout" aria-label="View Layout">Layout</div>
+        <div class="nav-item" navigate="view-drag" aria-label="View Drag & Drop">Drag & Drop</div>
+        <div class="nav-item" navigate="view-inputs" aria-label="View Inputs">Inputs</div>
+        <div class="nav-item" navigate="view-components" aria-label="View Components" active>Components</div>
+        <div class="nav-item" navigate="view-timeline" aria-label="View Timeline">Timeline</div>
+        <div class="nav-item" navigate="view" aria-label="Other Views">etc....</div>
       </nav-bar>
       <app>
         <outlet-content class="content"></outlet-content>
