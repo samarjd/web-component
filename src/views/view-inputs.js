@@ -231,8 +231,11 @@ class InputsView extends HTMLElement {
                     </col-elm>
                     <col-elm class="col-6">
                       <h2>Floating label inputs</h2>
+                      <label for="input-text">Text input</label>
                       <input-elm type="text" id="input-text" name="input-text" label="Enter text"></input-elm>
+                      <label for="input-email">Email input</label>
                       <input-elm type="email" id="input-email" name="input-email" label="Enter email"></input-elm>
+                      <label for="input-password">Password input</label>
                       <input-elm type="password" id="input-password" name="input-password" label="Password input"></input-elm>
                     </col-elm>
                   </row-elm>
