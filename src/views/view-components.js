@@ -1,18 +1,4 @@
-import "../library/layout/card.js";
-import '../library/tab/tab.js';
-import '../library/button/button.js';
-import '../library/tooltip/tooltip.js';
-import '../library/caroussel/caroussel.js';
-import '../library/breadcrumb/breadcrumb.js';
-import '../library/icons/icons.js';
-import "../library/breadcrumb/breadcrumb.js";
-import Alert from "../library/alert/alert.js";
-import '../library/accordion/accordion.js';
-import '../library/scrollspy/scrollspy.js';
-import '../library/icons/icons.js';
-import '../library/badge/badge.js'
-import '../library/offcanvas/offcanvas.js';
-import '../library/skeleton-loader/skeleton-loader.js';
+import {Card, Tab, Button, Tooltip, Caroussel, Breadcrumb, Icon, Alert, Accordion, ScrollSpy, Badge, Offcanvas, SkeletonLoader} from '../library/index.js';
 
 class CompView extends HTMLElement {
   constructor() {

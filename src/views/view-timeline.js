@@ -1,5 +1,4 @@
-import "../library/layout/card.js";
-import "../library/timeline/timeline.js";
+import { Card, Timeline } from '../library/index.js';
 
 class TimelineV extends HTMLElement {
   constructor() {

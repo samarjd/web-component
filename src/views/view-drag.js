@@ -1,10 +1,4 @@
-import "../library/drag-and-drop/drag-container.js";
-import '../library/drag-and-drop/drag-zone.js';
-import '../library/drag-and-drop/drag-item.js';
-
-import "../library/layout/row.js";
-import "../library/layout/col.js";
-import "../library/layout/card.js";
+import {Row, Col, Card, DragContainer, DragZone, DragItem} from '../library/index.js';
 
 class DragAndDrop extends HTMLElement {
     constructor() {

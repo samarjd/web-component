@@ -1,15 +1,4 @@
-import "../library/layout/row.js";
-import "../library/layout/col.js";
-import "../library/layout/card.js";
-import '../library/tab/tab.js';
-import "../library/select/select.js";
-import '../library/button/button.js';
-import '../library/text-editor/text-editor.js';
-import '../library/switch/switch.js';
-import '../library/tooltip/tooltip.js';
-import '../library/input/input.js';
-
-import '../library/icons/icons.js';
+import { Row, Col, Card, Tab, Select, Button, TextEditor, Switch, Tooltip, Input, Icon } from '../library/index.js';
 
 class InputsView extends HTMLElement {
   constructor() {
@@ -51,7 +40,7 @@ class InputsView extends HTMLElement {
     const multiSelectUsage = `    &lt;select-elm type=&quot;multiple&quot; allow-clear=&quot;true&quot; placeholder=&quot;Source&quot; name=&quot;source&quot; required&gt;
         &lt;option&gt;Email&lt;/option&gt;
         &lt;option selected&gt;Phone&lt;/option&gt;
-        &lt;option data-avatar=&quot;/src/images/pf_1.jpg&quot;&gt;Chat&lt;/option&gt;
+        &lt;option data-avatar=&quot;/src/images/users/pf_1.jpg&quot;&gt;Chat&lt;/option&gt;
         ...
     &lt;/select-elm&gt;`;
 
@@ -116,11 +105,11 @@ class InputsView extends HTMLElement {
                         <option>Referral</option>
                         <option>Advertisement</option>
                         <option>Event</option>
-                        <option data-avatar="src/images/pf_1.jpg">Newsletter</option>
+                        <option data-avatar="src/images/users/pf_1.jpg">Newsletter</option>
                         <option>Survey</option>
                         <option>Forum</option>
                         <option>Community</option>
-                        <option data-avatar="src/images/pf_3.jpg">Blog</option>
+                        <option data-avatar="src/images/users/pf_3.jpg">Blog</option>
                         <option>Other</option>
                     </select-elm>
                

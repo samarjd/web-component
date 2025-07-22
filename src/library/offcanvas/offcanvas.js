@@ -44,7 +44,6 @@ class Offcanvas extends HTMLElement {
 	}
 
 	_updateVisibility() {
-        console.log('Updating visibility for offcanvas');
 		const isOpen = this.hasAttribute('open');
 		const container = this.shadowRoot.querySelector('.offcanvas-container');
 		const backdrop = this.shadowRoot.querySelector('.backdrop');

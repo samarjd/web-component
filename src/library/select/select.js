@@ -1,7 +1,4 @@
-import '../icons/icons.js';
-import '../layout/row.js';
-import '../layout/col.js';
-
+import {Icon, Row, Col} from '../index.js';
 class SelectElm extends HTMLElement {
     constructor() {
         super();
@@ -251,7 +248,7 @@ class SelectElm extends HTMLElement {
                     ${option.label}
                     ${(this.type == 'single' && this.allowClear) || (this.type == 'multiple') ? 
                     `<span class="remove" title="Remove">
-                        <icon-elm name="close" size="6"></icon-elm>
+                        <icon-elm name="x" size="6"></icon-elm>
                     </span>`
                     : ''}
                 </div>

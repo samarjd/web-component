@@ -102,7 +102,7 @@ class TextEditor extends HTMLElement {
                 <icon-elm data-cmd="justifyLeft" name="align-left" size="${this.size}" title="Align Left"></icon-elm>
                 <icon-elm data-cmd="justifyCenter" name="align-center" size="${this.size}" title="Align Center"></icon-elm>
                 <icon-elm data-cmd="justifyRight" name="align-right" size="${this.size}" title="Align Right"></icon-elm>
-                <icon-elm data-cmd="justifyFull" name="justify" size="${this.size}" title="Justify"></icon-elm>
+                <icon-elm data-cmd="justifyFull" name="align-justify" size="${this.size}" title="Justify"></icon-elm>
                 <icon-elm data-cmd="insertUnorderedList" name="list-ul" size="${this.size}" title="Unordered List"></icon-elm>
                 <icon-elm data-cmd="insertOrderedList" name="list-ol" size="${this.size}" title="Ordered List"></icon-elm>       
 

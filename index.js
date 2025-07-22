@@ -1,6 +1,6 @@
 'use strict';
 
-import './src/library/navbar/nav-bar.js';
+import { NavBar } from './src/library/index.js';
 import './outlet.js';
 
 const registerServiceWorker = () => {

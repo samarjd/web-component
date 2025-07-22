@@ -1,10 +1,4 @@
-import "../library/layout/card.js";
-import "../library/button/button.js";
-import Modal from '../library/modal/modal.js';
-import '../library/icons/icons.js';
-import "../library/dropdown/dropdown.js";
-import "../library/layout/row.js";
-import "../library/layout/col.js";
+import { Row, Col, Card, Icon, Dropdown, Modal, Button } from '../library/index.js';
 
 class Counter extends HTMLElement {
   constructor() {
@@ -155,7 +149,7 @@ class Counter extends HTMLElement {
               <input type="hidden" name="type" value="${this.type}">
               <div class="text-right mt-1">
                 <button-elm type="submit" class="increment-btn" color="${this.type}" border shadow title="Set step value">
-                  <icon-elm type="solid" name="edit" size="15" title="Settings"></icon-elm> Save 
+                  <icon-elm type="solid" name="pen-to-square" size="15" title="Settings"></icon-elm> Save 
                 </button-elm>
               </div>
             </form>

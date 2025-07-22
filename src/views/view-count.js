@@ -1,8 +1,5 @@
-import "../library/layout/row.js";
-import "../library/layout/col.js";
-import "../library/layout/card.js";
+import { Row, Col, Card, Icon } from '../library/index.js';
 import '../component/count.js';
-import '../library/icons/icons.js';
 
 class Count extends HTMLElement {
     constructor() {
