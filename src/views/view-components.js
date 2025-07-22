@@ -12,6 +12,7 @@ import '../library/scrollspy/scrollspy.js';
 import '../library/icons/icons.js';
 import '../library/badge/badge.js'
 import '../library/offcanvas/offcanvas.js';
+import '../library/skeleton-loader/skeleton-loader.js';
 
 class CompView extends HTMLElement {
   constructor() {
@@ -364,6 +365,13 @@ class CompView extends HTMLElement {
                 </div>
               </off-canvas>
             </div>
+            <div class="tab-panel" label="Skeleton Loader">
+              <p class="text-muted">Usage:</p>
+              <div class="code-wrapper">
+                <span class="code">${this._usage('skeleton-loader')}</span>
+              </div>
+              <skeleton-loader image header body footer></skeleton-loader>
+            </div>
           </tab-elm>
         </div>
       </card-elm>
@@ -631,6 +639,15 @@ class CompView extends HTMLElement {
         - position: Position of the offcanvas (left, right, top, bottom, default: left)
         - open: If true, the offcanvas is open by default (default: false)
         - backdrop: If true, a backdrop is shown when the offcanvas is open (default: true)`
+      },
+      {
+        'skeleton-loader': `        &lt;skeleton-loader image header body footer&gt;&lt;/skeleton-loader&gt;
+
+        Attributes:
+        - image: If true, a skeleton for an image is shown (default: false)
+        - header: If true, a skeleton for a header is shown (default: false)
+        - body: If true, a skeleton for the body is shown (default: false)
+        - footer: If true, a skeleton for the footer is shown (default: false)`
       }
     ];
     return usage.find(item => item[type])?.[type] || 'No usage found for this type.';
