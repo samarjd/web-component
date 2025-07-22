@@ -10,12 +10,6 @@ class SkeletonLoader extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log('init skeleton-loader with attributes:', {
-            header: this.header,
-            body: this.body,
-            footer: this.footer,
-            image: this.image
-        });
         this.render();
     }
 
