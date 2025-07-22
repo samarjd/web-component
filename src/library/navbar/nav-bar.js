@@ -156,7 +156,7 @@ class NavBar extends HTMLElement {
       const active = item.hasAttribute('active') ? 'active' : '';
       const navigate = item.getAttribute('navigate') || '';
       return `
-      <li class="${active}" ${navigate ? `navigate="${navigate}"` : ''}>
+      <li role="tab" class="${active}" ${navigate ? `navigate="${navigate}"` : ''}>
         ${navigate 
           ? `<nav-link navigate="${navigate}">${item.innerHTML}</nav-link>` 
           : item.innerHTML}
@@ -177,7 +177,7 @@ class NavBar extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
       ${this.styles}
-      <ul>
+      <ul role="tablist">
         ${this.template}
       </ul>
     `;

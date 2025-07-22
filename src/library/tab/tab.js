@@ -103,6 +103,7 @@ class Tab extends HTMLElement {
         this.panels = [];
 
         const tabList = this.shadowRoot.querySelector('.tab-list');
+        tabList.setAttribute('role', 'tablist');
         tabList.innerHTML = '';
 
         assignedElements.forEach((panel, index) => {
