@@ -56,25 +56,30 @@ class SkeletonLoader extends HTMLElement {
                 animation: loading 1.25s infinite;
                 border-radius: 2px;
                 width: 100%;
-                height: 1rem;
+                height: 1.5rem;
             }
             .skeleton-header {
                 grid-area: header;
             }
             .skeleton-body {
                 grid-area: body;
+                display: flex;
+                flex-direction: column;
             }
             .skeleton-body *:not(:last-child) {
-                margin: 0 0 0.25rem;
+                margin: 0 0 0.5rem;
             }
-            .skeleton-body *:nth-child(1), .skeleton-body *:nth-child(4) {
-                height: 0.75rem;
-            }
-            .skeleton-body *:nth-child(2){
+            .skeleton-body *:nth-child(odd){
                 height: 1rem;
             }
-            .skeleton-body *:nth-child(3) {
+            .skeleton-body *:nth-child(even){
+                height: 2rem;
+            }
+            .skeleton-body *:nth-child(3n+3){
                 height: 3rem;
+            }
+            .skeleton-body *:nth-child(3n+4){
+                height: 4rem;
             }
             .skeleton-footer {
                 grid-area: footer;
@@ -102,17 +107,18 @@ class SkeletonLoader extends HTMLElement {
     }
 
     get template() {
+        let bodyContent = '';
+        if (this.body) {
+            let bodyLines = this.getAttribute('body-lines') || 3;
+            bodyContent = Array.from({ length: bodyLines })
+            .map(() => `<div class="skeleton-block"></div>`)
+            .join('');
+        }
         return `
             <div class="skeleton-container">
                 ${this.image ? '<div class="skeleton-image"></div>' : ''}
                 ${this.header ? '<div class="skeleton-header"></div>' : ''}
-                ${this.body ? `
-                <div class="skeleton-body">
-                    <div class="skeleton-text"></div>
-                    <div class="skeleton-text"></div>
-                    <div class="skeleton-text"></div>
-                    <div class="skeleton-text"></div>
-                </div>` : ''}
+                ${this.body ? `<div class="skeleton-body">${bodyContent}</div>` : ''}
                 ${this.footer ? '<div class="skeleton-footer"></div>' : ''}
             </div>
         `;

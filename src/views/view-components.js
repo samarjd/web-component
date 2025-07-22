@@ -1,4 +1,4 @@
-import {Card, Tab, Button, Tooltip, Caroussel, Breadcrumb, Icon, Alert, Accordion, ScrollSpy, Badge, Offcanvas, SkeletonLoader} from '../library/index.js';
+import {Row, Col, Card, Tab, Button, Tooltip, Caroussel, Breadcrumb, Icon, Alert, Accordion, ScrollSpy, Badge, Offcanvas, SkeletonLoader} from '../library/index.js';
 
 class CompView extends HTMLElement {
   constructor() {
@@ -356,7 +356,17 @@ class CompView extends HTMLElement {
               <div class="code-wrapper">
                 <span class="code">${this._usage('skeleton-loader')}</span>
               </div>
-              <skeleton-loader image header body footer></skeleton-loader>
+              <row-elm>
+                <col-elm class="col-4">
+                  <skeleton-loader image header body footer></skeleton-loader>
+                </col-elm>
+                <col-elm class="col-4">
+                  <skeleton-loader image header body footer></skeleton-loader>
+                </col-elm>
+                <col-elm class="col-4">
+                  <skeleton-loader image header body footer></skeleton-loader>
+                </col-elm>
+              </row-elm>
             </div>
           </tab-elm>
         </div>
@@ -633,7 +643,8 @@ class CompView extends HTMLElement {
         - image: If true, a skeleton for an image is shown (default: false)
         - header: If true, a skeleton for a header is shown (default: false)
         - body: If true, a skeleton for the body is shown (default: false)
-        - footer: If true, a skeleton for the footer is shown (default: false)`
+        - footer: If true, a skeleton for the footer is shown (default: false)
+        - body-lines: Number of lines in the body skeleton (default: 3)`
       }
     ];
     return usage.find(item => item[type])?.[type] || 'No usage found for this type.';
