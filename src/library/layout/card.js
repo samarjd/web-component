@@ -44,8 +44,7 @@ class Card extends HTMLElement {
                 }
                 .card:hover{
                     box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-                    transform: translateY(-2px);
-                    transition: transform 0.2s, box-shadow 0.2s;
+                    transition: box-shadow 0.2s;
                 }
 
                 .card-default { border-left: 4px solid #6c757d; }

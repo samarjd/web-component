@@ -11,6 +11,7 @@ import '../library/accordion/accordion.js';
 import '../library/scrollspy/scrollspy.js';
 import '../library/icons/icons.js';
 import '../library/badge/badge.js'
+import '../library/offcanvas/offcanvas.js';
 
 class CompView extends HTMLElement {
   constructor() {
@@ -93,6 +94,17 @@ class CompView extends HTMLElement {
 
       });
     });
+
+    // Handle offcanvas open button
+    const openOffcanvasBtn = this.shadowRoot.querySelector('#open-offcanvas');
+    if (openOffcanvasBtn) {
+      openOffcanvasBtn.addEventListener('click', () => {
+        const offcanvas = this.shadowRoot.querySelector('off-canvas');
+        if (offcanvas) {
+          offcanvas.open();
+        }
+      });
+    }
   }
 
   disconnectedCallback() {
@@ -322,6 +334,35 @@ class CompView extends HTMLElement {
                   </section>
                 `).join('')}
               </scroll-spy>
+            </div>
+            <div class="tab-panel" label="Offcanvas">
+              <p class="text-muted">Usage:</p>
+              <div class="code-wrapper">
+                <span class="code">${this._usage('offcanvas')}</span>
+              </div>
+              <button-elm id="open-offcanvas" color="primary" border shadow>Open Offcanvas</button-elm>
+              <off-canvas position="right">
+                <div slot="header">Offcanvas Header</div>
+                <div>
+                  <h1>Offcanvas Content</h1>
+                  <h2>This is the content of the offcanvas. You can add any HTML elements here.</h2>
+                  <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque varius velit sed malesuada mattis. Sed dolor nibh, eleifend eu est quis, auctor sodales ipsum. In luctus id metus vitae varius. Vivamus egestas metus dolor, tincidunt interdum ante semper in. Quisque bibendum felis felis, faucibus blandit elit sodales ac. Proin sit amet euismod tellus. Fusce vel libero varius, lobortis lorem et, ornare lacus. Vivamus rutrum auctor tellus non hendrerit. Vestibulum at leo condimentum, maximus lacus nec, hendrerit magna. Pellentesque dapibus pellentesque ultricies. Vivamus massa quam, fermentum sit amet massa eu, luctus rhoncus ex.
+                  </p>
+                  <img src="src/images/backgrounds/whiteboard-mockup-01.webp" alt="Offcanvas Image" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" />
+                  <h1>More Content</h1>
+                  <p>
+                  Integer in nisl eros. Maecenas ac libero eget nulla tempus posuere. Cras auctor velit vel bibendum elementum. In condimentum velit at diam pretium tincidunt. Quisque quis felis iaculis, aliquam odio non, lobortis ipsum. Morbi et eros tristique, iaculis libero a, porta ipsum. Phasellus tristique, dolor a vehicula ornare, nibh ligula varius quam, vel egestas justo elit vitae ipsum. Donec iaculis massa mauris, congue accumsan felis tristique id. Aliquam non nisi posuere, tristique nibh id, sodales purus. Etiam ut mi viverra, accumsan purus et, iaculis sapien. Nullam vulputate magna a congue elementum. Maecenas blandit lorem a dui lobortis, a commodo leo fringilla.
+                  </p>
+                  <p>
+                  Mauris pharetra rhoncus tempor. In maximus venenatis orci, quis auctor ante egestas vel. Aliquam porta nulla mi, et imperdiet est maximus eget. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin convallis, mi in lacinia convallis, velit dolor maximus mi, sit amet bibendum sem enim et lectus. Curabitur bibendum ligula eu nisi lobortis vehicula a vel sem. Praesent maximus ante non nisl gravida, feugiat faucibus ante congue. Nam consequat congue semper. Nunc aliquet posuere scelerisque. Nullam dapibus blandit quam a vestibulum. Sed pretium fermentum magna, vestibulum sagittis arcu bibendum ultricies. Sed quis sagittis diam. In aliquet neque eget elementum semper.
+                  </p>
+                  <img src="src/images/backgrounds/whiteboard-mockup-05.webp" alt="Offcanvas Image" style="width: 100%; height: auto; border-radius: 8px;" loading="lazy" />
+                </div>
+                <div slot="footer">
+                  All rights reserved © ${new Date().getFullYear()}
+                </div>
+              </off-canvas>
             </div>
           </tab-elm>
         </div>
@@ -576,6 +617,20 @@ class CompView extends HTMLElement {
           ...
           &lt;/section&gt;
         &lt;/scroll-spy&gt;`,
+      },
+      {
+        offcanvas: `        &lt;off-canvas position=&quot;left&quot;&gt;
+          &lt;div slot=&quot;header&quot;&gt;Offcanvas Header&lt;/div&gt;
+          &lt;div&gt;This is the content of the offcanvas&lt&lt;/div&gt;
+          &lt;div slot=&quot;footer&quot;&gt;
+            This is the footer of the offcanvas.
+          &lt;/div&gt;
+        &lt;/off-canvas&gt;
+
+        Attributes:
+        - position: Position of the offcanvas (left, right, top, bottom, default: left)
+        - open: If true, the offcanvas is open by default (default: false)
+        - backdrop: If true, a backdrop is shown when the offcanvas is open (default: true)`
       }
     ];
     return usage.find(item => item[type])?.[type] || 'No usage found for this type.';

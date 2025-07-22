@@ -1,13 +1,15 @@
 :root {
-    --zindex-dropdown:           1000;
+    --zindex-sticky:             1000;
+    --zindex-dropdown:           1005;
     --zindex-fixed:              1010;
     --zindex-modal-backdrop:     1020;
-    --zindex-modal:              1030;
-    --zindex-popover:            1040;
-    --zindex-tooltip:            1050;
-    --zindex-loader:             1060;
-    --zindex-alert:              1070;
-    --zindex-sticky:             1080;
+    --zindex-offcanvas-backdrop: 1025; 
+    --zindex-offcanvas:          1030; 
+    --zindex-modal:              1040;
+    --zindex-popover:            1050;
+    --zindex-tooltip:            1060;
+    --zindex-loader:             1070;
+    --zindex-alert:              1080;
 }
 *{
     box-sizing: border-box;
@@ -16,6 +18,7 @@
 }
 
 body {
+    font-size: 14px;
     font-family: sans-serif;
     box-sizing: border-box;
     padding: 0;
@@ -34,6 +37,10 @@ body:has(nav-bar[direction="vertical"]){
 
 body:has(nav-bar[direction="vertical"]) app{
     overflow-x: hidden;
+}
+
+body.offcanvas-open {
+    overflow: hidden;
 }
 
 .noscript{
