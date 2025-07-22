@@ -103,7 +103,7 @@ class Offcanvas extends HTMLElement {
 					position: fixed;
 					top: 0;
                     ${this.getAttribute('position') === 'right' ? 'right' : 'left'}: 0;
-					width: min(35rem, 100%);
+					width: min(30rem, 100%);
 					height: 100%;
 					background-color: #fff;
 					box-shadow: -2px 0 20px 0px rgb(0, 0, 0, 0.15);
