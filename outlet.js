@@ -1,11 +1,35 @@
 import './src/component/notfound.js';    
 import './src/library/icons/icons.js';
+
 class Outlet extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
-
         this._view = '';
+
+        // Bind popstate handler
+        this._onPopState = this._onPopState.bind(this);
+    }
+
+    connectedCallback() {
+        window.addEventListener('popstate', this._onPopState);
+
+        // Load initial view from URL hash if present
+        const hash = window.location.hash.slice(1);
+        if (hash) {
+            this.loadView(hash, false, '', false);
+        }
+    }
+
+    disconnectedCallback() {
+        window.removeEventListener('popstate', this._onPopState);
+    }
+
+    _onPopState(event) {
+        const state = event.state;
+        if (state && state.viewName) {
+            this.loadView(state.viewName, false, state.prefix || '', false);
+        }
     }
 
     get view() {
@@ -17,23 +41,29 @@ class Outlet extends HTMLElement {
         this.render();
     }
 
-    loadView(viewName, showLoader = true, prefix = '') {
+    loadView(viewName, showLoader = true, prefix = '', pushToHistory = true) {
         if (!this.shadowRoot) return;
         const loader = this.shadowRoot.querySelector('.loader');
-        
-        if (showLoader) {
-            if(!loader) this.view += `<div class="loader"></div>`;
+
+        if (showLoader && !loader) {
+            this.view = `<div class="loader"></div>`;
         }
 
         import(`${prefix}${viewName}.js`)
-        .then(() => {
-            this.view = `<${viewName}></${viewName}>`;
-        })
-        .catch((error) => {
-            this.view = `<not-found></not-found>`;
-            console.error(`Error loading view ${viewName}:`, error);
-        });
-       
+            .then(() => {
+                this.view = `<${viewName}></${viewName}>`;
+
+                if (pushToHistory) {
+                    const currentState = history.state || {};
+                    if (currentState.viewName !== viewName || currentState.prefix !== prefix) {
+                        history.pushState({ viewName, prefix }, '', window.location.pathname);
+                    }
+                }
+            })
+            .catch((error) => {
+                this.view = `<not-found></not-found>`;
+                console.error(`Error loading view ${viewName}:`, error);
+            });
     }
 
     get styles() {
@@ -54,7 +84,7 @@ class Outlet extends HTMLElement {
                 z-index: var(--zindex-loader, 1060);
             }
         </style>
-    `;
+        `;
     }
 
     render() {
